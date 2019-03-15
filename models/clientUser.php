@@ -1,7 +1,6 @@
 <?php
 
 class users extends dataBase {
-
     public $id = 0;
     public $lastname = '';
     public $firstname = '';
@@ -32,6 +31,7 @@ class users extends dataBase {
         $stmt->bindValue(':phone', str_replace($caracSuppr, '', $this->phone), PDO::PARAM_STR);
         $stmt->bindValue(':password', $this->password, PDO::PARAM_STR);
         $stmt->bindValue(':cgu', $this->cgu, PDO::PARAM_INT);
+        $stmt->bindValue(':id_a7b98_roles', $this->id_a7b98_roles, PDO::PARAM_INT);
         return $stmt->execute(); //exécution de la requète
     }
     /**
@@ -50,10 +50,10 @@ class users extends dataBase {
         }
         return $result;
     }
-/**
- * cette méthode permet de recuperer les données de la table en fonction du mail(identifiant)
- * @return array
- */
+    /**
+     * cette méthode permet de recuperer les données de la table en fonction du mail(identifiant)
+     * @return array
+     */
     public function userConnection()
     {
         $state = false;
@@ -64,7 +64,7 @@ class users extends dataBase {
         {
             $selectResult = $result->fetch(PDO::FETCH_OBJ);
             if (is_object($selectResult))
-            { 
+            {
                 $this->id = $selectResult->id;
                 $this->firstname = $selectResult->firstname;
                 $this->lastname = $selectResult->lastname;
@@ -80,10 +80,32 @@ class users extends dataBase {
         }
         return $state;
     }
+    public function updateClientInformation()
+    {
+       $caracSuppr = array('-', ' ', '.');
+        $query = 'UPDATE `a7b98_users` SET `firstname`= :firstname,`lastname`= (UPPER(:lastname)), `birthdate`= :birthdate, `mail`= :mail, `phone`=:phone WHERE `id`= :id';
+        $stmt = $this->db->prepare($query); //on prépare la requète
+        $stmt->bindValue(':firstname', ucfirst(strtolower($this->firstname)), PDO::PARAM_STR); //transformation de la premiere lettre en majuscule
+        $stmt->bindValue(':lastname', $this->lastname, PDO::PARAM_STR); // :lastname=marqueur nominatif
+        $stmt->bindValue(':birthdate', $this->birthdate, PDO::PARAM_STR);
+        $stmt->bindValue(':mail', $this->mail, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $stmt->bindValue(':phone', str_replace($caracSuppr, '', $this->phone), PDO::PARAM_STR);
+        return $stmt->execute(); //exécution de la requète   
+    }
+ public function updateClientPassword()
+    {
+        $query = 'UPDATE `a7b98_users` SET `password`= :password WHERE `id`= :id';
+        $stmt = $this->db->prepare($query); //on prépare la requète
+        $stmt->bindValue(':password', $this->password, PDO::PARAM_STR);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $stmt->execute(); //exécution de la requète   
+    }
     public function __destruct()
     {
         parent::__destruct();
     }
+
 }
 ?>
 

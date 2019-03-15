@@ -416,3 +416,8 @@ ul{
     background-color: #734a61;
    border:1px solid #4a2f3e;
 }
+.updateForm{
+     background-color: rgba(255,255, 255, 0.3);
+     border:1px solid rgba(255,255, 255, 0.3);
+     border-radius:20px;
+}

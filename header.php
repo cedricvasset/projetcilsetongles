@@ -14,7 +14,7 @@
     <body>
         <header>
             <div id="header"><h1 class="">Cils & Ongles</h1>
-                <p>bienvenue : <?= (isset($_SESSION['lastname'])) ? $_SESSION['lastname'] : '' ?></p>
+                <p>bienvenue : <?= (isset($_SESSION['lastname'])) ? $_SESSION['lastname'] . ' ' . $_SESSION['firstname'] : '' ?></p>
             </div>
             <nav  class="navbar navbar-expand-lg navbar-dark">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,14 +53,14 @@
                             <a class="nav-link" href="/views/alreadyRegister.php">Mon compte</a>
                             </li>
                             <li class="logout_login">
-                             <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/logout2.png" alt="" /> </a>
+                             <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" alt="" /> </a>
                              </li>
                                  <?php } else { ?>
                               <li class="nav-item">
                             <a class="nav-link" id="inscriptionLink" href="/views/newRegistration.php">INSCRIPTION</a>
                         </li>
                          <li class="logout_login">
-                             <a href="/views/alreadyRegister.php"><img class="img-fluid" src="../assets/img/login1.png" alt="" /> </a>
+                             <a href="/views/alreadyRegister.php"><img class="img-fluid" src="../assets/img/logout2.png" alt="" /> </a>
                     </li>
                     <?php } ?>
                     </ul>

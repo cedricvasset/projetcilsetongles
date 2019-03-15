@@ -5,8 +5,10 @@ include '../models/clientUser.php';
 include '../controllers/clientInformationUpdateCtrl.php';
 include('../header.php');
 ?>
- <form action="newRegistration.php" method="POST">
-        <div id="siteRegistration" class="form-group">
+<h3>Modifier mes informations</h3>
+<div class="updateForm">
+    <form action="clientInformationUpdate.php" method="POST">
+        <div id="clientInformationUpdate" class="form-group">
             <div class="identity">
                 <div class="row col-lg-12 justify-content-center">
                     <div class="col-lg-4">
@@ -41,4 +43,27 @@ include('../header.php');
             </div>
         </div>
     </form>
+</div>
+<h3>Modifier mon mot de passe</h3>
+<div class="updateForm">
+    <form action="clientInformationUpdate.php" method="POST">
+        <div id="clientInformationUpdatePassword" class="form-group">
+            <div class="passwordUpdate">
+                <div class="row col-lg-12 justify-content-center">
+                    <div class="col-lg-6">
+                        <label for="password" class="col-sm-6 col-form-label">Nouveau mot de passe : </label>
+                        <input type="password" class="form-control" placeholder="Mot de passe" id="password" name="password" value="<?= (isset($password)) ? $_POST['password'] : '' ?>">
+                        <p><?= (empty($formError['password'])) ? '' : $formError['password'] ?></p>
+                    </div>
+                    <div class="col-lg-6">
+                        <label for="confirmPassword" class="col-sm-6 col-form-label">Confirmer votre mot de passe :</label>
+                        <input type="password" class="form-control" placeholder="confirmer mot de passe" id="confirmPassword" name="confirmPassword" value="<?= (isset($confirmPassword)) ? $_POST['confirmPassword'] : '' ?>">
+                        <p><?= (empty($formError['confirmPassword'])) ? '' : $formError['confirmPassword'] ?></p>
+                    </div>
+                    <button type="submit" name="submitPassword" class="btnValid btn-primary btn-lg justify-content-center">MODIFIER MON MOT DE PASSE</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 <?php include('../footer.php'); ?>

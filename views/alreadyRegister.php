@@ -16,8 +16,9 @@ if (isset($_SESSION['isConnect']))
             <p class="card-text">Date de naissance : <?= $_SESSION['birthdate'] ?></p>
             <p class="card-text">Téléphone : <?= $_SESSION['phone'] ?></p>
             <p class="card-text">Email : <?= $_SESSION['mail'] ?></p>
-            <a href="disconnectSession.php?action=disconnect"> <button class="btn btn-primary">Deconnexion</button> </a>
-            <a href="clientInformationUpdate.php"> <button class="btn btn-primary">Modifier ces Informations</button> </a>
+            <a class="btn btn-primary" href="disconnectSession.php?action=disconnect">Deconnexion</a>
+            <a class="btn btn-primary" href="clientInformationUpdate.php"> Modifier ces Informations</a>
+            <a class="btn btn-danger" href="eraseUser.php">SUPPRIMER MON COMPTE</a>
         </div>
     </div>
     <?php
@@ -25,7 +26,7 @@ if (isset($_SESSION['isConnect']))
 else
 {
     ?>
-    <form action="alreadyRegister.php" method="POST">
+    <form action="alreadyRegister.php?action=disconnect" method="POST">
         <div id="siteIdentity" class="row col-lg-12 justify-content-center">
             <div class="col-lg-5">
                 <label for="userName">identifiant :</label>

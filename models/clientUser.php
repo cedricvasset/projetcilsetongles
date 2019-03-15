@@ -101,6 +101,14 @@ class users extends dataBase {
         $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $stmt->execute(); //exécution de la requète   
     }
+    public function eraseClientData()
+    {
+        $query = 'DELETE FROM `a7b98_users` WHERE `id` = :id';
+        $queryResult = $this->db->prepare($query);
+        $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryResult->execute();
+        return $queryResult->fetch(PDO::FETCH_OBJ); 
+    }
     public function __destruct()
     {
         parent::__destruct();

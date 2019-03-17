@@ -26,7 +26,7 @@ if (isset($_SESSION['isConnect']))
 else
 {
     ?>
-    <form action="alreadyRegister.php?action=disconnect" method="POST">
+    <form action="alreadyRegister.php" method="POST">
         <div id="siteIdentity" class="row col-lg-12 justify-content-center">
             <div class="col-lg-5">
                 <label for="userName">identifiant :</label>

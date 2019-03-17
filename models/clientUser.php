@@ -10,6 +10,7 @@ class users extends dataBase {
     public $creationDate = '2000-01-01';
     public $password = '';
     public $cgu = 1;
+    public $age = 0;
 
     public function __construct()
     {
@@ -108,6 +109,20 @@ class users extends dataBase {
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         $queryResult->execute();
         return $queryResult->fetch(PDO::FETCH_OBJ); 
+    }
+    public function getClientList()
+    {
+//    on initialise un tableau vide
+        $result = array();
+        $query = 'SELECT `a7b98_users`.`id`, `a7b98_users`.`lastname`, `a7b98_users`.`firstname`, DATE_FORMAT( `a7b98_users`.`birthdate`, \'%d-%m-%Y\') AS `birthdate`, FLOOR(DATEDIFF(NOW(), `birthdate`)/365)AS `age`, `a7b98_users`.`creationDate`, `a7b98_users`.`phone`, `a7b98_users`.`mail`, `a7b98_users`.`id_a7b98_roles` FROM `a7b98_users` ORDER BY `lastname` ASC';
+        $queryResult = $this->db->query($query);
+        //$this rapel la classe patients
+        if (is_object($queryResult))
+        {
+            $result = $queryResult->fetchAll(PDO::FETCH_OBJ);
+        }
+//        sinon on returne le tableau vide initialisé 
+        return $result;
     }
     public function __destruct()
     {

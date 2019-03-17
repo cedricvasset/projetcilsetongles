@@ -146,7 +146,18 @@ if (isset($_POST['submit']))
             }
             else
             {
-                 $success = true; 
+                 $success = true;
+                 $_SESSION['id'] = $clientUser->id;
+                $_SESSION['firstname'] = $clientUser->firstname;
+                $_SESSION['lastname'] = $clientUser->lastname;
+                $_SESSION['birthdate'] = $clientUser->birthdate;
+                $_SESSION['mail'] = $clientUser->mail;
+                $_SESSION['phone'] = $clientUser->phone;
+                $_SESSION['creationDate'] = $clientUser->creationDate;
+                $_SESSION['password'] = $clientUser->password;
+                $_SESSION['cgu'] = $clientUser->cgu;
+                $_SESSION['id_a7b98_roles'] = $clientUser->id_a7b98_roles;
+                $_SESSION['isConnect'] = true;
             }
         }
         else

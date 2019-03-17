@@ -51,6 +51,9 @@ ul{
     margin-right: 10px;
     border-radius: 5px;
 }
+.admin{
+  background-color: #67c27c;  
+}
 .logout_login{
    margin:10px; 
 }
@@ -425,4 +428,21 @@ ul{
     margin-left:auto;
     margin-right:auto;
     width:60%;
+}
+.navbarAdmin a{
+    background-color: #67c27c;
+   margin: auto;
+   margin-top: 2%;
+   margin-bottom: 2%;
+}
+.listClientTab{
+    margin: auto;
+}
+.btn-secondary:hover{
+    background-color: White;
+    color: #67c27c;
+    border:1px solid #67c27c;
+}
+.btn-secondary{
+     border:1px solid White;
 }

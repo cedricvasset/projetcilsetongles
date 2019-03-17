@@ -31,7 +31,7 @@ if (isset($_POST['submitEraseUser']))
     {
         $clientUser->id = $_SESSION['id'];
         $eraseClientData = $clientUser->eraseClientData();
-        header('location: ../views/disconnectSession.php');
+        header('location: ../views/disconnectSession.php?action=disconnect');
         exit;
     }
 }

@@ -48,6 +48,12 @@ $(function () {
         $('#cilPresta').hide();
     });
 });
+$(function () {
+    $('#navbar').hover(function () {
+        $('#onglePresta').hide();
+        $('#cilPresta').hide();
+    });
+});
 });
     $(document).ready(function () {
         $(window).on('load', function () {

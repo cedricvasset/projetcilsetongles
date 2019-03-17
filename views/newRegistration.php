@@ -14,8 +14,9 @@ if ($success == true)
         <p>Date de naissance : <?= $birthdate ?> </p>
         <p>Téléphone : <?= $phone ?> </p>
         <p>Email : <?= $mail ?> </p>
+        <a class="btn btn-primary" id="clientInformationLink" href="/views/clientInformationUpdate.php">modifier mes informations</a>
     </div>
-<a class="nav-link" id="clientInformationLink" href="/views/memberInformation.php">voir ou modifier mes informations</a>
+
     <?php
 }
 //          sinon on affiche le formulaire

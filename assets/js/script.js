@@ -1,3 +1,26 @@
+$('#search').keyup(function () {
+    $.post('../../controllers/listClientCtrl.php', {
+        searchAjax: $('#search').val()
+    }, function (data) {
+        var results = $.parseJSON(data);
+        $('#searchResult').empty();
+        $.each(results, function (key, clients) {
+            console.log(clients);
+            var display = '<tr class="table-secondary">'
+                    + '<td>' + clients.lastname + '</td>'
+                    + '<td>' + clients.firstname + '</td>'
+                    + '<td>' + clients.birthdate + '</td>'
+                    + '<td>' + clients.age + '</td>'
+                    + '<td>' + clients.phone + '</td>'
+                    + '<td>' + clients.mail + '</td>'
+                    + '<td><a class="btn btn-success btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >INFOS</a></td>'
+                    + '<td><a class="btn btn-info btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >Modifier</a></td>'
+                    + '<td><a class="btn btn-danger btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >Supprimer</a></td>'
+                    + '</tr>';
+            $('#searchResult').append(display);
+        });
+    });
+});
 
 $(function () {
     $('#onglePresta').hide();

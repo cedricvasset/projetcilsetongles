@@ -107,8 +107,7 @@ class users extends dataBase {
         $query = 'DELETE FROM `a7b98_users` WHERE `id` = :id';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
-        $queryResult->execute();
-        return $queryResult->fetch(PDO::FETCH_OBJ); 
+        return $queryResult->execute();
     }
     public function getClientList()
     {
@@ -122,6 +121,43 @@ class users extends dataBase {
             $result = $queryResult->fetchAll(PDO::FETCH_OBJ);
         }
 //        sinon on returne le tableau vide initialisé 
+        return $result;
+    }
+    public function searchClientInfo()
+    {
+        $query = 'SELECT `id`, `lastname`, `firstname`,DATE_FORMAT( `birthdate`, \'%d-%m-%Y\') AS `birthdate`,FLOOR(DATEDIFF(NOW(), `birthdate`)/365)AS `age`, `phone`, `mail` FROM `a7b98_users` WHERE `lastname` LIKE CONCAT(:inputValue, \'%\')';
+        $queryResult = $this->db->prepare($query);
+        $queryResult->bindValue(':inputValue', $this->inputValue, PDO::PARAM_STR);
+        $queryResult->execute();
+        return $queryResult->fetchAll(PDO::FETCH_OBJ);
+    }
+    public function countNumberClients()
+    {
+        $result = false;
+        $query = 'SELECT COUNT(`id`) AS `numberClients` FROM `a7b98_users`';
+        $queryResult = $this->db->query($query);
+        if (is_object($queryResult))
+        {
+            $result = $queryResult->fetch(PDO::FETCH_OBJ);
+        }
+        return $result;
+    }
+    public function getListByLimit($limit, $offset)
+    {
+//        $result = array();
+        $query = 'SELECT `id`, `lastname`, `firstname`, DATE_FORMAT(`birthdate`, \'%d-%m-%Y\') AS `birthdate`, FLOOR(DATEDIFF(NOW(), `birthdate`)/365) AS `age`, `phone`, `mail` FROM `a7b98_users` ORDER BY `lastname` ASC LIMIT :limit OFFSET :offset';
+        $queryResult = $this->db->prepare($query);
+        $queryResult->bindValue(':limit', $limit, PDO::PARAM_INT);
+        $queryResult->bindValue(':offset', $offset, PDO::PARAM_INT);
+        if ($queryResult->execute())
+        {
+            if (is_object($queryResult))
+            {
+                $result = $queryResult->fetchAll(PDO::FETCH_OBJ);
+            }
+        }
+//    si ma methode s 'execute corectement et que c est bien un objet je retourne le resultat de ma requete
+        // sinon j'affiche un tableau vide initialisé au début.
         return $result;
     }
     public function __destruct()

@@ -59,7 +59,7 @@
                                elseif (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] == 1))
                             { ?>
                         <li class="nav-item">
-                            <a class="admin nav-link" href="/views/administratorView.php">MENU ADMIN</a>
+                            <a class="admin nav-link" href="/views/clientListView.php">MENU ADMIN</a>
                             </li>
                             <li class="logout_login">
                              <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" alt="" /> </a>

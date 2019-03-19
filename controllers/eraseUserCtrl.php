@@ -3,18 +3,18 @@
  $formError = array();
  $success = false;
 if (isset($_POST['submitEraseUser']))
-{
-    if (!empty($_POST['password']))
+{   
+    if (!empty($_POST['password']) && password_verify($_POST['password'], $_SESSION['password']))
     {
         $password = $_POST['password'];
     }
     else
     {
-        $formError['password'] = 'Veuillez rentrer un mot de passe';
+        $formError['password'] = 'mot de passe non valide ou vide!';
     }
     if (!empty($_POST['confirmPassword']))
     {
-        if ($_POST['confirmPassword'] != $password)
+        if ($_POST['confirmPassword'] != $_POST['password'])
         {
             $formError['confirmPassword'] = 'les mots de passes ne correspondent pas';
         }

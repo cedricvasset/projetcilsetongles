@@ -25,8 +25,6 @@ if (isset($_GET['searchSubmit']))
                     <th scope="col">Prénom</th>
                     <th scope="col">Date de naissance</th>
                     <th scope="col">Age</th>
-                    <th scope="col">Téléphone</th>
-                    <th scope="col">Email</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -40,11 +38,9 @@ if (isset($_GET['searchSubmit']))
                         <td><?= $info->firstname ?></td>
                         <td><?= $info->birthdate ?></td>
                         <td><?= $info->age ?></td>
-                        <td><?= $info->phone ?></td>
-                        <td><?= $info->mail ?></td>
-                        <td><a class="btn btn-success btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >INFOS</a></td>
-                        <td><a class="btn btn-info btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >Modifier</a></td>
-                        <td><a class="btn btn-danger btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >Supprimer</a></td>
+                        <td><a class="btn btn-success btn-lg" href="clientInformationAndUpdateView.php?id=<?= $info->id ?>" >INFORMATIONS / MODIFICATIONS</a></td>
+                        <td><a class="btn btn-info btn-lg" href="newAppointmentView.php?id=<?= $info->id ?>" >AJOUT RENDEZ-VOUS</a></td>
+                        <td><a class="btn btn-danger btn-lg" href="eraseUserByAdmin.php?id=<?= $info->id ?>" >SUPPRIMER</a></td>
                     </tr>
                 <?php } ?>
             </tbody>
@@ -62,9 +58,6 @@ else
                     <th scope="col">Prénom</th>
                     <th scope="col">Date de naissance</th>
                     <th scope="col">Age</th>
-                    <th scope="col">Téléphone</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Infos Patient</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
@@ -78,11 +71,9 @@ else
                         <td><?= $info->firstname ?></td>
                         <td><?= $info->birthdate ?></td>
                         <td><?= $info->age ?></td>
-                        <td><?= $info->phone ?></td>
-                        <td><?= $info->mail ?></td>
-                        <td><a class="btn btn-success btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >INFOS</a></td>
-                        <td><a class="btn btn-info btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >Modifier</a></td>
-                        <td><a class="btn btn-danger btn-lg" href="liste-patients.php?id=<?= $info->id ?>" >Supprimer</a></td>
+                        <td><a class="btn btn-success btn-lg" href="clientInformationAndUpdateView.php?id=<?= $info->id ?>" >INFORMATIONS / MODIFICATIONS</a></td>
+                        <td><a class="btn btn-info btn-lg" href="newAppointmentView.php?id=<?= $info->id ?>" >AJOUT RENDEZ-VOUS</a></td>
+                        <td><a class="btn btn-danger btn-lg" href="eraseUserByAdmin.php?id=<?= $info->id ?>" >SUPPRIMER</a></td>
                     </tr>
                 <?php
                 }

@@ -1,6 +1,7 @@
 <?php
 
 class users extends dataBase {
+
     public $id = 0;
     public $lastname = '';
     public $firstname = '';
@@ -16,6 +17,7 @@ class users extends dataBase {
     {
         parent::__construct();
     }
+
     /**
      * cette méthode sert a insérer les données dans la table a7b98_users
      * @return array
@@ -35,6 +37,7 @@ class users extends dataBase {
         $stmt->bindValue(':id_a7b98_roles', $this->id_a7b98_roles, PDO::PARAM_INT);
         return $stmt->execute(); //exécution de la requète
     }
+
     /**
      * cette méthode sert a compter le nombre d'email identiques a7b98_users
      * @return array
@@ -51,6 +54,7 @@ class users extends dataBase {
         }
         return $result;
     }
+
     /**
      * cette méthode permet de recuperer les données de la table en fonction du mail(identifiant)
      * @return array
@@ -81,9 +85,10 @@ class users extends dataBase {
         }
         return $state;
     }
+
     public function updateClientInformation()
     {
-       $caracSuppr = array('-', ' ', '.');
+        $caracSuppr = array('-', ' ', '.');
         $query = 'UPDATE `a7b98_users` SET `firstname`= :firstname,`lastname`= (UPPER(:lastname)), `birthdate`= :birthdate, `mail`= :mail, `phone`=:phone WHERE `id`= :id';
         $stmt = $this->db->prepare($query); //on prépare la requète
         $stmt->bindValue(':firstname', ucfirst(strtolower($this->firstname)), PDO::PARAM_STR); //transformation de la premiere lettre en majuscule
@@ -94,7 +99,8 @@ class users extends dataBase {
         $stmt->bindValue(':phone', str_replace($caracSuppr, '', $this->phone), PDO::PARAM_STR);
         return $stmt->execute(); //exécution de la requète   
     }
- public function updateClientPassword()
+
+    public function updateClientPassword()
     {
         $query = 'UPDATE `a7b98_users` SET `password`= :password WHERE `id`= :id';
         $stmt = $this->db->prepare($query); //on prépare la requète
@@ -102,13 +108,16 @@ class users extends dataBase {
         $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $stmt->execute(); //exécution de la requète   
     }
+
     public function eraseClientData()
     {
+        $result = array();
         $query = 'DELETE FROM `a7b98_users` WHERE `id` = :id';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $queryResult->execute();
     }
+
     public function getClientList()
     {
 //    on initialise un tableau vide
@@ -123,6 +132,7 @@ class users extends dataBase {
 //        sinon on returne le tableau vide initialisé 
         return $result;
     }
+
     public function searchClientInfo()
     {
         $query = 'SELECT `id`, `lastname`, `firstname`,DATE_FORMAT( `birthdate`, \'%d-%m-%Y\') AS `birthdate`,FLOOR(DATEDIFF(NOW(), `birthdate`)/365)AS `age`, `phone`, `mail` FROM `a7b98_users` WHERE `lastname` LIKE CONCAT(:inputValue, \'%\')';
@@ -131,6 +141,7 @@ class users extends dataBase {
         $queryResult->execute();
         return $queryResult->fetchAll(PDO::FETCH_OBJ);
     }
+
     public function countNumberClients()
     {
         $result = false;
@@ -142,9 +153,9 @@ class users extends dataBase {
         }
         return $result;
     }
+
     public function getListByLimit($limit, $offset)
     {
-//        $result = array();
         $query = 'SELECT `id`, `lastname`, `firstname`, DATE_FORMAT(`birthdate`, \'%d-%m-%Y\') AS `birthdate`, FLOOR(DATEDIFF(NOW(), `birthdate`)/365) AS `age`, `phone`, `mail` FROM `a7b98_users` ORDER BY `lastname` ASC LIMIT :limit OFFSET :offset';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':limit', $limit, PDO::PARAM_INT);
@@ -160,6 +171,25 @@ class users extends dataBase {
         // sinon j'affiche un tableau vide initialisé au début.
         return $result;
     }
+
+    public function clientInfo()
+    {
+        $query = 'SELECT `id`, `lastname`, `firstname`,DATE_FORMAT( `birthdate`, \'%d-%m-%Y\') AS `birthdate`,FLOOR(DATEDIFF(NOW(), `birthdate`)/365) AS `age`, `phone`, `mail`, `password` FROM `a7b98_users` WHERE `id`= :id';
+        $queryResult = $this->db->prepare($query);
+        $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
+        $queryResult->execute();
+        $result = $queryResult->fetch(PDO::FETCH_OBJ);
+        $this->lastname = $result->lastname;
+        $this->id = $result->id;
+        $this->firstname = $result->firstname;
+        $this->birthdate = $result->birthdate;
+        $this->age = $result->age;
+        $this->phone = $result->phone;
+        $this->mail = $result->mail;
+        $this->password = $result->password;
+        return true;
+    }
+
     public function __destruct()
     {
         parent::__destruct();

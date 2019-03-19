@@ -53,7 +53,7 @@
                             <a class="nav-link" href="/views/alreadyRegister.php">Mon compte</a>
                             </li>
                             <li class="logout_login">
-                             <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" alt="" /> </a>
+                             <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" title="se connecter" /> </a>
                              </li>
                                  <?php }
                                elseif (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] == 1))
@@ -62,7 +62,7 @@
                             <a class="admin nav-link" href="/views/clientListView.php">MENU ADMIN</a>
                             </li>
                             <li class="logout_login">
-                             <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" alt="" /> </a>
+                             <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" title="se déconnecter" /> </a>
                              </li>
                                  <?php   
                             } else { ?>
@@ -70,7 +70,7 @@
                             <a class="nav-link" id="inscriptionLink" href="/views/newRegistration.php">INSCRIPTION</a>
                         </li>
                          <li class="logout_login">
-                             <a href="/views/alreadyRegister.php"><img class="img-fluid" src="../assets/img/logout2.png" alt="" /> </a>
+                             <a href="/views/alreadyRegister.php"><img class="img-fluid" src="../assets/img/logout2.png" title="se connecter" /> </a>
                     </li>
                     <?php } ?>
                     </ul>

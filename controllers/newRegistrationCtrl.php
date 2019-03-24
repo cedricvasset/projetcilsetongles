@@ -5,7 +5,7 @@ $regexDate = '/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/';
 $regexPhone = ' /^0[1-9]([-. ]?[0-9]{2}){4}$/';
 $formError = array();
 $success = false;
-//si on valide le formulaire
+//si il existe un POST du bouton submit
 if (isset($_POST['submit']))
 {
 //    si $_POST['firstname'] n'est pas vide
@@ -127,6 +127,7 @@ if (isset($_POST['submit']))
         $clientUser->mail = $mail;
         $clientUser->cgu = $cguCheck;
         $clientUser->password = password_hash($password, PASSWORD_BCRYPT);
+//        le role est attribué à la valeur 2 par défaut(utilisateur simple)
         $clientUser->id_a7b98_roles = 2;
 //        lancement de la méthode qui vérifie l existence d'un email avant insertion des données dans la table
         $checkIfMailExist = $clientUser->checkIfMailExist();
@@ -146,6 +147,7 @@ if (isset($_POST['submit']))
             }
             else
             {
+//                attribution des valeurs aux variables de session
                  $success = true;
                 $_SESSION['id'] = $clientUser->id;
                 $_SESSION['firstname'] = $clientUser->firstname;
@@ -167,7 +169,6 @@ if (isset($_POST['submit']))
            
         }
     }
-//     $userInfo = $clientUser->userInformation();
 }
 ?>
 

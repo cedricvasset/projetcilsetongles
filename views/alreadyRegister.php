@@ -5,6 +5,7 @@ include '../models/clientUser.php';
 include '../controllers/alreadyRegisterCtrl.php';
 include('../header.php');
 ?>
+<!--on verifi si une session est ouverte, dans ce cas on affiche la card.-->
 <?php
 if (isset($_SESSION['isConnect']))
 {
@@ -26,6 +27,7 @@ if (isset($_SESSION['isConnect']))
 else
 {
     ?>
+<!--si il n'y a pas de session ouverte alors on affiche le formulaire d'identification-->
     <form action="alreadyRegister.php" method="POST">
         <div id="siteIdentity" class="row col-lg-12 justify-content-center">
             <div class="col-lg-5">

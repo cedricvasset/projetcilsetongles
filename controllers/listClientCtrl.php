@@ -1,4 +1,5 @@
 <?php
+
 if (isset($_POST['searchAjax']))
 {
     include '../models/dataBase.php';
@@ -9,33 +10,30 @@ if (isset($_POST['searchAjax']))
     $searchClientLastname = $clients->searchClientInfo();
     echo json_encode($searchClientLastname);
 }
-
-else
-{
+else{
     $clients = new users();
+//    nombre de ligne affichées par page
     $limit = 8;
+//    lancement de la méthode servant à compter le nombre total de client de la base de donnée
     $numberOfClients = $clients->countNumberClients();
+//    on récupère le resultat arrondi du nombre de client que l'on divise par la limite
     $nbrPage = ceil($numberOfClients->numberClients / $limit);
-//    $page = (!empty($_GET['page']) ? $_GET['page'] : 1);
     if (!empty($_GET['page']))
     {
-        if(!is_numeric($_GET['page']) || $_GET['page'] > $nbrPage || $_GET['page'] <= 0 || !is_int(intval($_GET['page'])))
+        if (!is_numeric($_GET['page']) || $_GET['page'] > $nbrPage || $_GET['page'] <= 0 || !is_int(intval($_GET['page'])))
         {
             $page = 1;
-        }
-        else
-        {
+        }else{
             $page = intval($_GET['page']);
         }
-    }
-    else
-    {
+    }else{
         $page = 1;
     }
+//    offset permet de savoir a quel moment on reprend à la ligne
     $offset = ($page - 1) * $limit;
     $getListByLimit = $clients->getListByLimit($limit, $offset);
-//dans $patients on va chercher la méthode
-  
+
+//dans $clientUsers on va chercher la méthode
     if (isset($_GET['searchSubmit']))
     {
         $_GET['word'] = htmlspecialchars($_GET['word']); //pour sécuriser le formulaire contre les failles html
@@ -43,17 +41,8 @@ else
         $clients->inputValue = $_GET['word'];
         $searchClientInfo = $clients->searchClientInfo();
     }
-//    $numberPatients = $patients->countNumberPatients();
-//  
-//    
-////    $nbrPatients = $patients->numberPatients;
-//    
-//    
-//    
-//
     $clientsList = $clients->getClientList();
 }
-
 $clients = new users;
 $searchClientInfos = $clients->getClientList();
 ?>

@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no" />
         <title>Cils & Ongles</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
-        <link rel="stylesheet" href="/assets/css/bootstrapMinty.css" />
+        <link rel="stylesheet" href="/assets/css/bootstrap.css" />
         <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" /> 
         <link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css?family=Noticia+Text" rel="stylesheet" /> 
@@ -46,33 +46,41 @@
                         <li class="nav-item">
                             <a class="nav-link" id="meeting" href="/views/appointmentView.php">PRENDRE RENDEZ-VOUS</a>
                         </li>
-                          <?php
-                            if (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] == 2))
-                            { ?>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/views/alreadyRegister.php">Mon compte</a>
+                        <!--si une session est ouverte, et que la valeur de id role==2(role utilisateur simple) alors on affiche:--> 
+                        <?php
+                        if (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] == 2))
+                        {
+                            ?>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/views/alreadyRegister.php">Mon compte</a>
                             </li>
                             <li class="logout_login">
-                             <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" title="se connecter" /> </a>
-                             </li>
-                                 <?php }
-                               elseif (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] == 1))
-                            { ?>
-                        <li class="nav-item">
-                            <a class="admin nav-link" href="/views/clientListView.php">MENU ADMIN</a>
+                                <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" title="se connecter" /> </a>
+                            </li>
+                            <!--si une session est ouverte, et que la valeur de id role==1(role Administrateur) alors on affiche:-->
+                        <?php
+                        }
+                        elseif (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] == 1))
+                        {
+                            ?>
+                            <li class="nav-item">
+                                <a class="admin nav-link" href="/views/clientListView.php">MENU ADMIN</a>
                             </li>
                             <li class="logout_login">
-                             <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" title="se déconnecter" /> </a>
-                             </li>
-                                 <?php   
-                            } else { ?>
-                              <li class="nav-item">
-                            <a class="nav-link" id="inscriptionLink" href="/views/newRegistration.php">INSCRIPTION</a>
-                        </li>
-                         <li class="logout_login">
-                             <a href="/views/alreadyRegister.php"><img class="img-fluid" src="../assets/img/logout2.png" title="se connecter" /> </a>
-                    </li>
-                    <?php } ?>
+                                <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" title="se déconnecter" /> </a>
+                            </li>
+                            <!--sinon (si il n'y a pas de session ouverte) on affiche:-->
+    <?php }
+else
+{
+    ?>
+                            <li class="nav-item">
+                                <a class="nav-link" id="inscriptionLink" href="/views/newRegistration.php">INSCRIPTION</a>
+                            </li>
+                            <li class="logout_login">
+                                <a href="/views/alreadyRegister.php"><img class="img-fluid" src="../assets/img/logout2.png" title="se connecter" /> </a>
+                            </li>
+<?php } ?>
                     </ul>
                 </div>
             </nav>

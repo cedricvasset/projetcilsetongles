@@ -1,5 +1,4 @@
 <?php
-
 $clientUser = new users(); //$clientUser devient une instance de l objet
 $regexText = '/^[a-zéèàêâùïüëA-Z- \']+$/';
 $regexDate = '/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/';

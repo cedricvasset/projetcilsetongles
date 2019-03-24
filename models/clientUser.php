@@ -168,7 +168,6 @@ class users extends dataBase {
             }
         }
 //    si ma methode s 'execute corectement et que c est bien un objet je retourne le resultat de ma requete
-        // sinon j'affiche un tableau vide initialisé au début.
         return $result;
     }
 

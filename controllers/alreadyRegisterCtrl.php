@@ -35,6 +35,7 @@ if (isset($_POST['identSubmit']))
         $clientUser->mail = $mail;
         if ($clientUser->userConnection())
         {
+//            si les mots de passes correspondent,on attibut les valeurs aux variables de session
             if (password_verify($password, $clientUser->password))
             {
                 $_SESSION['id'] = $clientUser->id;

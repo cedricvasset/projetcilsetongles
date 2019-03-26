@@ -1,6 +1,7 @@
 <?php
 
 $mail = '';
+$_SESSION['id'] = 0;
 $password = '';
 $formError = array();
 $success = false;
@@ -50,7 +51,6 @@ if (isset($_POST['identSubmit']))
                 $_SESSION['id_a7b98_roles'] = $clientUser->id_a7b98_roles;
                 $_SESSION['isConnect'] = true;
             }
-            
             else
             {
                 $formError['error'] = 'login ou mot de passe non valide!!!';
@@ -58,5 +58,8 @@ if (isset($_POST['identSubmit']))
         }
     }
 }
+$appointment = new appointment();
+$appointment->id_a7b98_users = $_SESSION['id'];
+$clientListAppointment = $appointment->clientListAppointment();
 ?>
 

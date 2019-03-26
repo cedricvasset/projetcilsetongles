@@ -4,7 +4,7 @@ include('../indexCtrl.php');
 include('../header.php');
 ?>
 
-<div class=" presentationView row col-lg-12 load-from-right">
+<div class=" presentationView row col-lg-12">
     <div class="col-lg-6">
         <h3>Petit Historique de Cils & Ongles</h3>
         <p>Cils & Ongles est une entreprise créée en 2017 par une passionnée.</p>

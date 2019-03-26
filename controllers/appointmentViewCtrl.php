@@ -1,10 +1,11 @@
 <?php
 
 $prestation = new prestation();
+$appointment = new appointment();
+$message = '';
 $prestationList = $prestation->getPrestationList();
 $formError = array();
 $success = false;
-
 if (isset($_POST['submit']))
 {
     if (!empty($_POST['appointmentDate']))
@@ -25,15 +26,34 @@ if (isset($_POST['submit']))
     }
     if (count($formError) == 0)
     {
+        $appointment->id_a7b98_users = $_SESSION['id'];
+        $appointment->id_a7b98_prestationsList = $_POST['prestation'];
+        $appointment->date = $appointmentDate . ' ' . $hour;
+        $checkFreeAppointment = $appointment->checkFreeAppointment();
         
-        $idClient = $_SESSION['id'];
-        $idPrestation = $prestation->id;
-        $appointment = new appointment();
-        $date = $appointmentDate . ' ' . $hour;
-        $success = true;
-        $inputRequestAppointment = $appointment->inputRequestAppointment();
-     
+        if (intval($checkFreeAppointment->takenAppointment) === 1)
+        {
+            $formError['takenAppointments'] = 'echec Ce rendez-vous est déja attribué';
+            $success = false;
+            $message = 'echec Ce rendez-vous est déja attribué';
+        }
+        elseif (intval($checkFreeAppointment->takenAppointment) === 0)
+        {
+           
+            $success = true;
+            $inputRequestAppointment = $appointment->inputRequestAppointment();
+           
+            $message = 'Votre demande est bien enregistrée';
+        }
+        else
+        {
+            $formError['takenAppointments'] = 'Merci de contacter le service technique!';
+            $success = false;
+            $message = 'echec Merci de contacter le service technique!';
+        }
     }
+   
 }
+
 ?>
 

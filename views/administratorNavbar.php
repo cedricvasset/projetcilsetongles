@@ -11,7 +11,7 @@
         <a class="btn btn-secondary" href="clientListView.php">FICHIER CLIENT <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-          <a class="btn btn-secondary" href="newAppointmentView.php">CREER UN RENDEZ-VOUS</a>
+          <a class="btn btn-secondary" href="newAppointmentView.php">DEMANDES DE RENDEZ-VOUS</a>
       </li>
       <li class="nav-item">
           <a class="btn btn-secondary" href="myAppointmentsView.php">MES RENDEZ-VOUS</a>

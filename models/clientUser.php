@@ -62,7 +62,7 @@ class users extends dataBase {
     public function userConnection()
     {
         $state = false;
-        $query = 'SELECT `a7b98_users`.`id`, `a7b98_users`.`firstname`, `a7b98_users`.`lastname`, `a7b98_users`.`birthdate`, `a7b98_users`.`mail`, `a7b98_users`.`phone`, `a7b98_users`.`creationDate`, `a7b98_users`.`password`, `a7b98_users`.`cgu`, `a7b98_users`.`id_a7b98_roles` FROM  `a7b98_users` INNER JOIN `a7b98_roles` WHERE `mail` = :mail';
+        $query = 'SELECT `a7b98_users`.`id`, `a7b98_users`.`firstname`, `a7b98_users`.`lastname`, DATE_FORMAT(`birthdate`, \'%d-%m-%Y\') AS `birthdate`, `a7b98_users`.`mail`, `a7b98_users`.`phone`, `a7b98_users`.`creationDate`, `a7b98_users`.`password`, `a7b98_users`.`cgu`, `a7b98_users`.`id_a7b98_roles` FROM  `a7b98_users` INNER JOIN `a7b98_roles` WHERE `mail` = :mail';
         $result = $this->db->prepare($query);
         $result->bindValue(':mail', $this->mail, PDO::PARAM_STR);
         if ($result->execute())

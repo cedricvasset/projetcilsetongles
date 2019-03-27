@@ -24,7 +24,7 @@ include('../header.php');
                     </div>
                     <div class="col-lg-4">
                         <label class="col-form-label" for="inputDefault">DATE de Naissance:</label>
-                        <input max="<?= date('Y-m-d') ?>" type="date" class="form-control"  id="birthdate" name="birthdate" value="<?= $_SESSION['birthdate'] ?>">
+                        <input max="<?= date('Y-m-d') ?>" type="date" class="form-control"  id="birthdate" name="birthdate" value="<?= date('Y-m-d', strtotime($_SESSION['birthdate'])) ?>">
                         <p><?= (empty($formError['birthdate'])) ? '' : $formError['birthdate'] ?></p>
                     </div>
                     <div class="col-lg-6">

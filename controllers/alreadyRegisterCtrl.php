@@ -1,10 +1,10 @@
 <?php
 
 $mail = '';
-$_SESSION['id'] = 0;
 $password = '';
 $formError = array();
 $success = false;
+
 if (isset($_POST['identSubmit']))
 {
     if (!empty($_POST['userName']))
@@ -58,8 +58,13 @@ if (isset($_POST['identSubmit']))
         }
     }
 }
-$appointment = new appointment();
-$appointment->id_a7b98_users = $_SESSION['id'];
-$clientListAppointment = $appointment->clientListAppointment();
+//si une session est démarée on lance la classe appointment et on attribut la valeur du $_SESSION['id']au champs id_a7b98_user
+//évite les erreurs php avant l'ouverture de session
+if (isset($_SESSION['isConnect']))
+{
+    $appointment = new appointment();
+    $appointment->id_a7b98_users = $_SESSION['id'];
+    $clientListAppointment = $appointment->clientListAppointment();
+}
 ?>
 

@@ -12,10 +12,9 @@ $('#search').keyup(function () {
                     + '<td>' + clients.birthdate + '</td>'
                     + '<td>' + clients.age + '</td>'
                     + '<td>' + clients.phone + '</td>'
-                    + '<td>' + clients.mail + '</td>'
-                    + '<td><a class="btn btn-success btn-lg" href="clientInformationAndUpdateView.php?id=<?= $info->id ?>" >INFORMATIONS / MODIFICATIONS</a></td>'
-                    + '<td><a class="btn btn-info btn-lg" href="newAppointmentView.php?id=<?= $info->id ?>" >AJOUT RENDEZ-VOUS</a></td>'
-                    + '<td><a class="btn btn-danger btn-lg" href="eraseUserByAdmin.php?id=<?= $info->id ?>" >SUPPRIMER</a></td>'
+                    + '<td><a class="btn btn-success btn-lg" href="clientInformationAndUpdateView.php?id='+ clients.id + '" >INFORMATIONS / MODIFICATIONS</a></td>'
+                    + '<td><a class="btn btn-info btn-lg" href="newAppointmentView.php?id='+ clients.id + '" >AJOUT RENDEZ-VOUS</a></td>'
+                    + '<td><a class="btn btn-danger btn-lg" href="eraseUserByAdmin.php?id='+ clients.id + '" >SUPPRIMER</a></td>'
                     + '</tr>';
             $('#searchResult').append(display);
         });

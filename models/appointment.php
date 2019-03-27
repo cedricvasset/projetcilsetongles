@@ -82,6 +82,14 @@ class appointment extends dataBase {
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $queryResult->execute();   
     }
+//     public function updateAppointmentDAte()
+//    {
+//        $query = 'UPDATE `a7b98_appointments` SET `date`= :date, `id_a7b98_statusAppointments`= :id_a7b98_statusAppointments WHERE `id`= :id';
+//        $stmt = $this->db->prepare($query); //on prépare la requète
+//        $stmt->bindValue(':date', $this->date, PDO::PARAM_STR); 
+//        $stmt->bindValue(':id_a7b98_statusAppointments', $this->id_a7b98_statusAppointments, PDO::PARAM_STR); 
+//        return $stmt->execute(); //exécution de la requète   
+//    }
     public function __destruct()
     {
         parent::__destruct();

@@ -52,7 +52,7 @@ class appointment extends dataBase {
     {
         //    on initialise un tableau vide
         $result = array();
-        $query = 'SELECT `a7b98_users`.`id`,`a7b98_appointments`.`id`, DATE_FORMAT(`date`, \'%d-%m-%Y à %H h %i\') AS `date`, `a7b98_users`.`lastname`, `a7b98_users`.`firstname` FROM `a7b98_users` INNER JOIN `a7b98_appointments` ON `a7b98_appointments`.`id_a7b98_users` = `a7b98_users`.`id` WHERE `a7b98_appointments`.`id_a7b98_statusAppointments`=3 ORDER BY `date` ASC';
+        $query = 'SELECT `a7b98_users`.`id`,`a7b98_appointments`.`id`, DATE_FORMAT(`date`, \'%d-%m-%Y à %H h %i\') AS `date`, `a7b98_users`.`lastname`, `a7b98_users`.`firstname`, `a7b98_prestationsList`.`prestation` FROM `a7b98_users` INNER JOIN `a7b98_appointments` ON `a7b98_appointments`.`id_a7b98_users` = `a7b98_users`.`id` INNER JOIN `a7b98_prestationsList` ON `a7b98_appointments`.`id_a7b98_prestationsList` = `a7b98_prestationsList`.`id` WHERE `a7b98_appointments`.`id_a7b98_statusAppointments`=3 ORDER BY `date` ASC';
 //        $query = 'SELECT `a7b98_appointments`.`id`, DATE_FORMAT(`date`, \'%d-%m-%Y à %H h %i\') AS `date`, `a7b98_appointments`.`id_a7b98_users`, `a7b98_appointments`.`id_a7b98_statusAppointments`, `a7b98_appointments`.`id_a7b98_prestationsList` FROM `a7b98_appointments` WHERE `a7b98_appointments`.`id_a7b98_statusAppointments`=3 ORDER BY `date` ASC';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id_a7b98_users', $this->id_a7b98_users, PDO::PARAM_INT);
@@ -70,6 +70,14 @@ class appointment extends dataBase {
     {
         $result = array();
         $query = 'DELETE FROM `a7b98_appointments` WHERE `id` = :id';
+        $queryResult = $this->db->prepare($query);
+        $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $queryResult->execute();   
+    }
+    public function changeStatusAppointmentByAdmin()
+    {
+        $result = array();
+        $query = 'UPDATE `a7b98_appointments` SET `id_a7b98_statusAppointments`= 2 WHERE `id`= :id';
         $queryResult = $this->db->prepare($query);
         $queryResult->bindValue(':id', $this->id, PDO::PARAM_INT);
         return $queryResult->execute();   

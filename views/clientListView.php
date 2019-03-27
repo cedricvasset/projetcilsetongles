@@ -72,7 +72,7 @@ else
                         <td><?= $info->birthdate ?></td>
                         <td><?= $info->age ?></td>
                         <td><a class="btn btn-success btn-lg" href="clientInformationAndUpdateView.php?id=<?= $info->id ?>" >INFORMATIONS / MODIFICATIONS</a></td>
-                        <td><a class="btn btn-info btn-lg" href="newAppointmentView.php?id=<?= $info->id ?>" >AJOUT RENDEZ-VOUS</a></td>
+                        <td><a class="btn btn-info btn-lg" href="createAppointmentByAdmin.php?id=<?= $info->id ?>" >AJOUT RENDEZ-VOUS</a></td>
                         <td><a class="btn btn-danger btn-lg" href="eraseUserByAdmin.php?id=<?= $info->id ?>" >SUPPRIMER</a></td>
                     </tr>
                 <?php

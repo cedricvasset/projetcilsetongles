@@ -41,7 +41,7 @@ include 'headerCtrl.php';
                             foreach ($prestationTypeList as $list)
                             {
                                 ?>
-                                <a class="nav-link prestationTypes" href="/views/prestations.php" ><?= $list->TYPE ?></a>
+                                <a class="nav-link prestationTypes" href="/views/prestations.php?id=<?= $list->ID ?>" ><?= $list->TYPE ?></a>
                             <?php } ?>
 
                             </div>

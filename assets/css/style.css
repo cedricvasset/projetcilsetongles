@@ -164,6 +164,18 @@ ul{
     background-color: rgba(255,255, 255, 0.1); 
 
 }
+.prestation{
+    box-shadow: 10px 5px 5px rgba(255,255, 255, 0.6);
+    margin: 3%;
+    margin-left:2%;
+    margin-right:1%; 
+    text-align: center;
+    color: white;
+    border-radius: 10px;
+    padding: 2%;
+    background-color: rgba(255,255, 255, 0.1); 
+
+}
 .local:hover{
     transform: scale(1.1,1.1); 
     transition: all 1s ease;

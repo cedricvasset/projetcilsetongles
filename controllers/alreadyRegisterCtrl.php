@@ -64,7 +64,17 @@ if (isset($_SESSION['isConnect']))
 {
     $appointment = new appointment();
     $appointment->id_a7b98_users = $_SESSION['id'];
-    $clientListAppointment = $appointment->clientListAppointment();
+    
+
+if(isset($_GET['valid'])){
+ $appointment->id = $_GET['id'];
+ $appointmentValidateByAdmin = $appointment->appointmentValidateByAdmin();
+}
+if(isset($_GET['notValid'])){
+ $appointment->id = $_GET['id'];
+ $appointmentValidateByAdmin = $appointment->eraseAppointmentByAdmin();
+}
+$clientListAppointment = $appointment->clientListAppointment();
 }
 ?>
 

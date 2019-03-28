@@ -50,6 +50,8 @@ if (isset($_POST['identSubmit']))
                 $_SESSION['cgu'] = $clientUser->cgu;
                 $_SESSION['id_a7b98_roles'] = $clientUser->id_a7b98_roles;
                 $_SESSION['isConnect'] = true;
+                header('location: ../views/alreadyRegister.php');
+        exit;
             }
             else
             {

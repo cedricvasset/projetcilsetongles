@@ -1,5 +1,4 @@
 <?php
-
 $prestation = new prestation();
 $appointment = new appointment();
 $message = '';

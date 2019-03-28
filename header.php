@@ -1,3 +1,8 @@
+<?php 
+include 'models/dataBase.php';
+include 'models/prestationType.php';
+include 'headerCtrl.php';
+?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
     <head>
@@ -31,10 +36,14 @@
                         <li class="nav-item">
                             <a class="nav-link" id="presta" href="" >PRESTATIONS</a>
                             <div class="presta1">
-                                <a class="nav-link" id="onglePresta" href="/views/prestations.php" >ONGLES</a>
-                            </div>
-                            <div class="presta2">
-                                <a class="nav-link" id="cilPresta" href="/views/prestations.php" >CILS</a>
+                                
+                                <?php
+                            foreach ($prestationTypeList as $list)
+                            {
+                                ?>
+                                <a class="nav-link prestationTypes" href="/views/prestations.php" ><?= $list->TYPE ?></a>
+                            <?php } ?>
+
                             </div>
                         </li>
                         <li class="nav-item">

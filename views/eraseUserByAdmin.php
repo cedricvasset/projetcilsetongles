@@ -1,9 +1,8 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../controllers/eraseUserByAdminCtrl.php';
-include('../header.php');
 include('administratorNavbar.php');
 ?>
 <div class="alert alert-dismissible alert-danger">

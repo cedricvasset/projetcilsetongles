@@ -1,9 +1,9 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../controllers/clientInformationUpdateCtrl.php';
-include('../header.php');
+
 ?>
 <h3>Modifier mes informations</h3>
 <div class="updateForm">

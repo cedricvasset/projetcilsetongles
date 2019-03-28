@@ -1,10 +1,9 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../models/appointment.php';
 include '../controllers/alreadyRegisterCtrl.php';
-include('../header.php');
 ?>
 <!--on verifi si une session est ouverte, dans ce cas on affiche la card.-->
 <?php

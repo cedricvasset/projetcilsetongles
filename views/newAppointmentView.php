@@ -1,10 +1,9 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../models/appointment.php';
 include '../controllers/newAppointmentViewCtrl.php';
-include('../header.php');
 include('administratorNavbar.php');
 ?>
 

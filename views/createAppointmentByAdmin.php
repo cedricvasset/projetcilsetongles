@@ -1,11 +1,10 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../models/appointment.php';
 include '../models/prestation.php';
 include '../controllers/createAppointmentByAdminCtrl.php';
-include('../header.php');
 include('administratorNavbar.php');
 ?>
 <form action="createAppointmentByAdmin.php?id=<?= $appointment->id_a7b98_users ?>" method="POST">

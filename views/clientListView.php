@@ -1,9 +1,8 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../controllers/listClientCtrl.php';
-include('../header.php');
 include('administratorNavbar.php');
 ?>
 <div class="search row col-lg-12 justify-content-center">

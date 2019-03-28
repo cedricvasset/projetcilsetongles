@@ -1,6 +1,5 @@
 <?php
 session_start();
-include('indexCtrl.php');
 include('header.php');
 ?>
    <div class="container d-none d-sm-block align-items-center load-from-right">

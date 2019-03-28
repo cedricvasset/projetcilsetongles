@@ -1,6 +1,5 @@
 <?php
 session_start();
-include('../indexCtrl.php');
 include('../header.php');
 ?>
 <div class="CGU_CGV">

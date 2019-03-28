@@ -1,9 +1,9 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../controllers/eraseUserCtrl.php';
-include('../header.php');
+
 ?>
 <div class="alert alert-dismissible alert-danger">
         <strong>!!! ATTENTION Vous êtes sur le point de SUPPRIMER votre compte définitivement !!!</strong> 

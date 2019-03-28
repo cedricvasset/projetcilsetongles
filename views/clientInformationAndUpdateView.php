@@ -1,10 +1,9 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../models/appointment.php';
 include '../controllers/clientAndInformationUpdateViewCtrl.php';
-include('../header.php');
 include('administratorNavbar.php');
 ?>
 <div class="card text-white bg-info mb-3 informationReturn" >

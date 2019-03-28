@@ -1,9 +1,8 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../controllers/clientInformationUpdateByAdminCtrl.php';
-include('../header.php');
 include('administratorNavbar.php');
 ?>
 

@@ -1,9 +1,8 @@
 <?php
 session_start();
-include '../models/dataBase.php';
+include('../header.php');
 include '../models/clientUser.php';
 include '../controllers/memberInformationCtrl.php';
-include('../header.php');
 ?>
 <form action="memberInformation.php" method="POST">
         <div id="memberInformationUpdate" class="form-group">

@@ -57,59 +57,49 @@ $(document).ready(function () {
 });
 
 $(function () {
-    $('#onglePresta').hide();
-    $('#cilPresta').hide();
+    $('.prestationTypes').hide();
     $('#presta').hover(function () {
-        $('#onglePresta').show();
-        $('#cilPresta').show();
+        $('.prestationTypes').show();
     });
 });
 $(function () {
     $('#presentation').hover(function () {
-        $('#onglePresta').hide();
-        $('#cilPresta').hide();
+        $('.prestationTypes').hide();
     });
 });
 $(function () {
     $('#galery').hover(function () {
-        $('#onglePresta').hide();
-        $('#cilPresta').hide();
+        $('.prestationTypes').hide();
     });
 });
 $(function () {
     $('#goldBook').hover(function () {
-        $('#onglePresta').hide();
-        $('#cilPresta').hide();
+        $('.prestationTypes').hide();
     });
 });
 $(function () {
     $('#accueil').hover(function () {
-        $('#onglePresta').hide();
-        $('#cilPresta').hide();
+        $('.prestationTypes').hide();
     });
 });
 $(function () {
     $('#meeting').hover(function () {
-        $('#onglePresta').hide();
-        $('#cilPresta').hide();
+        $('.prestationTypes').hide();
     });
 });
 $(function () {
     $('#registrationChoice').hover(function () {
-        $('#onglePresta').hide();
-        $('#cilPresta').hide();
+        $('.prestationTypes').hide();
     });
 });
 $(function () {
     $('#inscriptionLink').hover(function () {
-        $('#onglePresta').hide();
-        $('#cilPresta').hide();
+        $('.prestationTypes').hide();
     });
 });
 $(function () {
     $('#navbar').hover(function () {
-        $('#onglePresta').hide();
-        $('#cilPresta').hide();
+        $('.prestationTypes').hide();
     });
 });
        

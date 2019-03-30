@@ -1,11 +1,10 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 include '../models/clientUser.php';
 include '../controllers/clientInformationUpdateByAdminCtrl.php';
-include('administratorNavbar.php');
+include 'administratorNavbar.php';
 ?>
-
 <h3>Modifier les informations</h3>
 <div class="updateForm">
     <form action="clientInformationUpdateByAdmin.php?id=<?= $clients->id ?>" method="POST">
@@ -46,5 +45,5 @@ include('administratorNavbar.php');
     </form>
 </div>
 <?php
-include('../footer.php');
+include '../footer.php';
 ?>

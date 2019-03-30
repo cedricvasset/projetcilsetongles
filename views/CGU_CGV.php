@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 ?>
 <div class="CGU_CGV">
     <h2> Conditions Générales d’Utilisation et de Vente</h2>
@@ -174,4 +174,4 @@ include('../header.php');
     </div>
 
 </div>
-<?php include('../footer.php'); ?>
+<?php include '../footer.php'; ?>

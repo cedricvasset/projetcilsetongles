@@ -1,15 +1,21 @@
 <?php
+
 class prestation extends dataBase {
 
     public $id = 0;
     public $prestation = '';
     public $price = 0;
     public $ID_a7b98_prestationsTypes = 0;
-    
+
     public function __construct()
     {
         parent::__construct();
     }
+
+    /**
+     * recupère les données de la table prestationList
+     * @return array
+     */
     public function getPrestationList()
     {
 //    on initialise un tableau vide
@@ -23,6 +29,11 @@ class prestation extends dataBase {
 //        sinon on returne le tableau vide initialisé 
         return $result;
     }
+
+    /**
+     * récupère les prestations correspondant à un certain type
+     * @return array
+     */
     public function getPrestationListByType()
     {
 //    on initialise un tableau vide
@@ -35,12 +46,13 @@ class prestation extends dataBase {
             $result = $queryResult->fetchAll(PDO::FETCH_OBJ);
         }
         return $result;
-   
     }
+
     public function __destruct()
     {
         parent::__destruct();
     }
+
 }
 ?>
 

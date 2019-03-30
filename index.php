@@ -1,20 +1,20 @@
 <?php
 session_start();
-include('header.php');
+include 'header.php';
+//d-none d-sm-block fait disparaitre le carousel sur les petits écrans
 ?>
    <div class="container d-none d-sm-block align-items-center load-from-right">
-       <!--        d-none d-sm-block fait disparaitre le carousel sur les petits écrans-->
             <p>Quelques réalisations:</p>
             <div id="carousel">
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle2(14x10).jpg" alt=""></figure>
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle1(14x10).jpg" alt=""></figure>
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle3(14x10).jpg" alt=""></figure>
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle4(14x10).jpg" alt=""></figure>
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle5(14x10).jpg" alt=""></figure>
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle6(14x10).jpg" alt=""></figure>
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle7(14x10).jpg" alt=""></figure>
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle8(14x10).jpg" alt=""></figure>
-                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle9(14x10).jpg" alt=""></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle2(14x10).jpg" alt="img"></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle1(14x10).jpg" alt="img"></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle3(14x10).jpg" alt="img"></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle4(14x10).jpg" alt="img"></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle5(14x10).jpg" alt="img"></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle6(14x10).jpg" alt="img"></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle7(14x10).jpg" alt="img"></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle8(14x10).jpg" alt="img"></figure>
+                <figure><img class="carousel img-fluid" src="assets/img/imgGalerie/ongle9(14x10).jpg" alt="img"></figure>
             </div>
         </div>
 <div class="row">
@@ -34,8 +34,6 @@ include('header.php');
             <div><img class="pub img-fluid from-left" src="assets/img/pub.png" alt=""></div>
         </div>
     </div>
-   </div>
-
-    
-<?php include('footer.php'); ?>
+   </div>  
+<?php include 'footer.php'; ?>
  

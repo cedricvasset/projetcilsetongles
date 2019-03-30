@@ -1,6 +1,6 @@
 <?php
-class dataBase {
 
+class dataBase {
     protected $db;
 
     public function __construct()

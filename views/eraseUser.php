@@ -1,15 +1,14 @@
 <?php
 session_start();
-include('../header.php');
+include'../header.php';
 include '../models/clientUser.php';
 include '../controllers/eraseUserCtrl.php';
-
 ?>
 <div class="alert alert-dismissible alert-danger">
-        <strong>!!! ATTENTION Vous êtes sur le point de SUPPRIMER votre compte définitivement !!!</strong> 
-        <div class="row col-lg-12 justify-content-center">
-            <a href="alreadyRegister.php" class="alert-link alertButtonErasing btn btn-primary">J'ai réfléchis ou je me suis trompé , je retourne en arrière</a>  
-        </div>
+    <strong>!!! ATTENTION Vous êtes sur le point de SUPPRIMER votre compte définitivement !!!</strong> 
+    <div class="row col-lg-12 justify-content-center">
+        <a href="alreadyRegister.php" class="alert-link alertButtonErasing btn btn-primary">J'ai réfléchis ou je me suis trompé , je retourne en arrière</a>  
+    </div>
 </div>
 <div class="updateForm">
     <form action="eraseUser.php" method="POST">
@@ -33,4 +32,4 @@ include '../controllers/eraseUserCtrl.php';
         </div>
     </form>
 </div>
-<?php include('../footer.php'); ?>
+<?php include '../footer.php'; ?>

@@ -1,8 +1,11 @@
 <?php
+
 $clientUser = new users(); //$clientUser devient une instance de l objet
+//utilisation de variables pour les regex
 $regexText = '/^[a-zéèàêâùïüëA-Z- \']+$/';
 $regexDate = '/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/';
 $regexPhone = ' /^0[1-9]([-. ]?[0-9]{2}){4}$/';
+//initialisation d'un tableau d'erreur
 $formError = array();
 $success = false;
 //si on valide le formulaire
@@ -91,13 +94,14 @@ if (isset($_POST['submit']))
 
     if (count($formError) == 0)
     {
+        //        si il n'y a pas d'erreur stocké dans le tableau d'erreur,on attribut les valeurs aux variables
         $clientUser->lastname = $lastname;
         $clientUser->firstname = $firstname;
         $clientUser->birthdate = $birthdate;
         $clientUser->phone = $phone;
         $clientUser->mail = $mail;
         $clientUser->id = $_SESSION['id'];
-
+//on lance la méthode de vérification afin de vérifier si le mail est déja utilisé
         $checkIfMailExist = $clientUser->checkIfMailExist();
         if (intval($checkIfMailExist->existMail) === 1)
         {
@@ -107,6 +111,7 @@ if (isset($_POST['submit']))
         }
         elseif (intval($checkIfMailExist->existMail) === 0)
         {
+//            si il n'y a pas de mail correspondant on lance la méthode de création d'utilisateur
             if (!$clientUser->createUser())
             {
                 $success = false;
@@ -124,6 +129,7 @@ if (isset($_POST['submit']))
         }
         if ($clientUser->updateClientInformation())
         {
+//            on attribut les valeurs aux variables de session
             $userConnection = $clientUser->userConnection();
             $_SESSION['id'] = $clientUser->id;
             $_SESSION['firstname'] = $clientUser->firstname;
@@ -134,6 +140,7 @@ if (isset($_POST['submit']))
         }
     }
 }
+//verification du mot de passe pour la modification par l'utilisateur
 if (isset($_POST['submitPassword']))
 {
     if (!empty($_POST['password']))
@@ -161,8 +168,10 @@ if (isset($_POST['submitPassword']))
     }
     if (count($formError) == 0)
     {
+//        on utilise password_hash afin de crypter le mot de passe saisie avant son insertion en base de données
         $clientUser->password = password_hash($password, PASSWORD_BCRYPT);
         $clientUser->id = $_SESSION['id'];
+//        on lance la méthode
         $updateClientPassword = $clientUser->updateClientPassword();
     }
 }

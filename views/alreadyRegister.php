@@ -1,12 +1,12 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 include '../models/clientUser.php';
 include '../models/appointment.php';
 include '../controllers/alreadyRegisterCtrl.php';
 ?>
-<!--on verifi si une session est ouverte, dans ce cas on affiche la card.-->
 <?php
+//on verifi si une session est ouverte, dans ce cas on affiche la card.
 if (isset($_SESSION['isConnect']))
 {
     ?>
@@ -22,24 +22,25 @@ if (isset($_SESSION['isConnect']))
                 <?php
                 foreach ($clientListAppointment as $list)
                 {
-//                création d'une ternaire (ternaire imbriquée) permettant de modifier la classe en fonction du status du rendez-vous.permet de modifier la couleur et le texte à l'affichage
+//                création de ternaires permettant de modifier la classe en fonction du status du rendez-vous.permet de modifier la couleur et le texte à l'affichage
                     ?>
                     <div class="col-lg-4 card text-white <?= $list->id_a7b98_statusAppointments == 3 ? 'bg-warning' : ($list->id_a7b98_statusAppointments == 1 ? 'bg-success' : ($list->id_a7b98_statusAppointments == 2 ? 'bg-danger' : 'bg-info')); ?> mb-3" style="max-width: 20rem;">
                         <div class="card-header"><?= $list->id_a7b98_statusAppointments == 3 ? 'rendez-vous en attente de validation' : ($list->id_a7b98_statusAppointments == 1 ? 'votre rendez-vous a été validé' : ($list->id_a7b98_statusAppointments == 2 ? 'votre rendez-vous n\'est pas validé' : 'Nouvelle proposition de rendez-vous')); ?></div> 
                         <div class="card-body">
-
+                            <p><?= $list->prestation ?></p>
                             <h4 class="card-title"><?= $list->date ?></h4>
-                            <?php if ($list->id_a7b98_statusAppointments == 4)
+                            <?php
+                            if ($list->id_a7b98_statusAppointments == 4)
                             {
                                 ?> 
                                 <div>
                                     <a class="btn btn-primary" href="alreadyRegister.php?valid=valid&id=<?= $list->id ?>">ACCEPTER</a>
                                     <a class="btn btn-danger" href="alreadyRegister.php?notValid=notValid&id=<?= $list->id ?>">REFUSER</a>
                                 </div>
-        <?php } ?>
+                            <?php } ?>
                         </div>
                     </div>
-    <?php } ?>
+                <?php } ?>
             </div>
             <a class="btn btn-primary" href="disconnectSession.php?action=disconnect">Deconnexion</a>
             <a class="btn btn-primary" href="clientInformationUpdate.php"> Modifier ces Informations</a>
@@ -50,8 +51,8 @@ if (isset($_SESSION['isConnect']))
 }
 else
 {
+    //si il n'y a pas de session ouverte alors on affiche le formulaire d'identification 
     ?>
-    <!--si il n'y a pas de session ouverte alors on affiche le formulaire d'identification-->
     <form action="alreadyRegister.php" method="POST">
         <div id="siteIdentity" class="row col-lg-12 justify-content-center">
             <div class="col-lg-5">
@@ -70,4 +71,4 @@ else
         </div>
     </form>
 <?php } ?>
-<?php include('../footer.php'); ?>
+<?php include '../footer.php'; ?>

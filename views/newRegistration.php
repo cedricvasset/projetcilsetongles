@@ -1,10 +1,10 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 include '../models/clientUser.php';
 include '../controllers/newRegistrationCtrl.php';
 if ($success == true)
-{
+{ //si la variable success est true, on affiche les données
     ?>
     <div class="informationReturn">
         <h2>Récapitulatif des informations que vous nous avez envoyées</h2>
@@ -15,12 +15,10 @@ if ($success == true)
         <p>Email : <?= $mail ?> </p>
         <a class="btn btn-primary" id="clientInformationLink" href="/views/clientInformationUpdate.php">modifier mes informations</a>
     </div>
-
     <?php
 }
-//          sinon on affiche le formulaire
 else
-{
+{ //          sinon on affiche le formulaire
     ?>
     <form action="newRegistration.php" method="POST">
         <div id="siteRegistration" class="form-group">
@@ -28,7 +26,6 @@ else
                 <div class="row col-lg-12 justify-content-center">
                     <div class="col-lg-4">
                         <label class="col-form-label" for="inputDefault">NOM:</label>
-                        <!--                            pour que le texte saisi reste en memoire donne à la value le contenu du $_POST['lastname'] -->
                         <input type="text" class="form-control" placeholder="Nom" id="lastname" name="lastname" value="<?= (isset($lastname)) ? $_POST['lastname'] : '' ?>">
                         <p><?= (empty($formError['lastname'])) ? '' : $formError['lastname'] ?></p>
                     </div>
@@ -73,7 +70,7 @@ else
             </div>
         </div>
     </form>
-<?php
+    <?php
 }
-include('../footer.php');
+include '../footer.php';
 ?>

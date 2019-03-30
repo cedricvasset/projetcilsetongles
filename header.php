@@ -1,4 +1,4 @@
-<?php 
+<?php
 include 'models/dataBase.php';
 include 'models/prestationType.php';
 include 'headerCtrl.php';
@@ -35,15 +35,13 @@ include 'headerCtrl.php';
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" id="presta" href="" >PRESTATIONS</a>
-                            <div class="presta1">
-                                
+                            <div class="presta1"> 
                                 <?php
-                            foreach ($prestationTypeList as $list)
-                            {
-                                ?>
-                                <a class="nav-link prestationTypes" href="/views/prestations.php?id=<?= $list->ID ?>" ><?= $list->TYPE ?></a>
-                            <?php } ?>
-
+                                foreach ($prestationTypeList as $list)
+                                { //boucle permetant l'affichage du type de prestation, permettant dans le futur d'ajouter de nouvelles prestations sans toucher au html 
+                                    ?>
+                                    <a class="nav-link prestationTypes" href="/views/prestations.php?id=<?= $list->ID ?>" ><?= $list->TYPE ?></a>
+                                <?php } ?>
                             </div>
                         </li>
                         <li class="nav-item">
@@ -55,8 +53,7 @@ include 'headerCtrl.php';
                         <li class="nav-item">
                             <a class="nav-link" id="meeting" href="/views/appointmentView.php">PRENDRE RENDEZ-VOUS</a>
                         </li>
-                        <!--si une session est ouverte, et que la valeur de id role==2(role utilisateur simple) alors on affiche:--> 
-                        <?php
+                        <?php //si une session est ouverte, et que la valeur de id role==2(role utilisateur simple) alors on affiche:
                         if (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] == 2))
                         {
                             ?>
@@ -66,8 +63,7 @@ include 'headerCtrl.php';
                             <li class="logout_login">
                                 <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" title="se connecter" /> </a>
                             </li>
-                            <!--si une session est ouverte, et que la valeur de id role==1(role Administrateur) alors on affiche:-->
-                        <?php
+                            <?php //si une session est ouverte, et que la valeur de id role==1(role Administrateur) alors on affiche:
                         }
                         elseif (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] == 1))
                         {
@@ -78,20 +74,21 @@ include 'headerCtrl.php';
                             <li class="logout_login">
                                 <a  href="/views/disconnectSession.php?action=disconnect"><img class="img-fluid" src="../assets/img/login1.png" title="se déconnecter" /> </a>
                             </li>
-                            <!--sinon (si il n'y a pas de session ouverte) on affiche:-->
-    <?php }
-else
-{
-    ?>
+
+                            <?php
+                            //(si il n'y a pas de session ouverte) on affiche:
+                        }
+                        else
+                        {
+                            ?>
                             <li class="nav-item">
                                 <a class="nav-link" id="inscriptionLink" href="/views/newRegistration.php">INSCRIPTION</a>
                             </li>
                             <li class="logout_login">
                                 <a href="/views/alreadyRegister.php"><img class="img-fluid" src="../assets/img/logout2.png" title="se connecter" /> </a>
                             </li>
-<?php } ?>
+                        <?php } ?>
                     </ul>
                 </div>
             </nav>
-
         </header>

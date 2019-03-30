@@ -1,4 +1,5 @@
 <?php
+
 class prestationType extends dataBase {
 
     public $ID = 0;
@@ -8,6 +9,11 @@ class prestationType extends dataBase {
     {
         parent::__construct();
     }
+
+    /**
+     * récupère le type de prestation et l'id
+     * @return array
+     */
     public function prestationTypeList()
     {
 //    on initialise un tableau vide
@@ -21,8 +27,7 @@ class prestationType extends dataBase {
 //        sinon on returne le tableau vide initialisé 
         return $result;
     }
-    
-    
+
     public function __destruct()
     {
         parent::__destruct();

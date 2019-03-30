@@ -1,4 +1,4 @@
-$('#search').keyup(function () {
+$('#search').keyup(function () { // à l appui sur une touche
     $.post('../../controllers/listClientCtrl.php', {
         searchAjax: $('#search').val()
     }, function (data) {
@@ -12,25 +12,23 @@ $('#search').keyup(function () {
                     + '<td>' + clients.birthdate + '</td>'
                     + '<td>' + clients.age + '</td>'
                     + '<td>' + clients.phone + '</td>'
-                    + '<td><a class="btn btn-success btn-lg" href="clientInformationAndUpdateView.php?id='+ clients.id + '" >INFORMATIONS / MODIFICATIONS</a></td>'
-                    + '<td><a class="btn btn-info btn-lg" href="newAppointmentView.php?id='+ clients.id + '" >AJOUT RENDEZ-VOUS</a></td>'
-                    + '<td><a class="btn btn-danger btn-lg" href="eraseUserByAdmin.php?id='+ clients.id + '" >SUPPRIMER</a></td>'
+                    + '<td><a class="btn btn-success btn-lg" href="clientInformationAndUpdateView.php?id=' + clients.id + '" >INFORMATIONS / MODIFICATIONS</a></td>'
+                    + '<td><a class="btn btn-info btn-lg" href="newAppointmentView.php?id=' + clients.id + '" >AJOUT RENDEZ-VOUS</a></td>'
+                    + '<td><a class="btn btn-danger btn-lg" href="eraseUserByAdmin.php?id=' + clients.id + '" >SUPPRIMER</a></td>'
                     + '</tr>';
             $('#searchResult').append(display);
         });
     });
 });
+//apparition par la droite ou la gauche au chargement de la page
 $(document).ready(function () {
     $(window).on('load', function () {
-
         var elmt = $('.load-from-left, .load-from-right');
         var topImg = $('.load-from-left, .load-from-right').offset().top;
         var scroll = $(window).scrollTop();
         $(elmt).each(function () {
-
             var topImg = $(this).offset().top - 300;
             if (topImg < scroll) {
-
                 $(this).css("transform", "translate(0,0)");
                 $(this).css("opacity", "1");
             }
@@ -38,6 +36,7 @@ $(document).ready(function () {
         });
     });
 });
+//apparition par la droite ou la gauche au scroll de la page
 $(document).ready(function () {
     $(window).on('scroll', function () {
         var elmt = $('.from-left, .from-right');
@@ -55,13 +54,14 @@ $(document).ready(function () {
         });
     });
 });
-
+// apparition de la classe au survol
 $(function () {
     $('.prestationTypes').hide();
     $('#presta').hover(function () {
         $('.prestationTypes').show();
     });
 });
+// disparition de la classe au survol
 $(function () {
     $('#presentation').hover(function () {
         $('.prestationTypes').hide();

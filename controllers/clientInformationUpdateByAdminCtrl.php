@@ -3,11 +3,14 @@
 $clients = new users();
 if (isset($_GET['id']))
 {
+//    on récupère le get de l'id
     $clients->id = $_GET['id'];
+//    on lance la méthode
     $clientInfo = $clients->clientInfo();
+//    on modifi la forme de la date
     $formatedDate = date('Y-m-d', strtotime($clients->birthdate));
 }
-
+//stockage des regex dans des variables afin de les réutiliser si besoin sans avoir besoin de les réecrire
 $regexText = '/^[a-zéèàêâùïüëA-Z- \']+$/';
 $regexDate = '/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/';
 $regexPhone = ' /^0[1-9]([-. ]?[0-9]{2}){4}$/';
@@ -98,14 +101,16 @@ if (isset($_POST['submit']))
     }
     if (count($formError) == 0)
     {
+//        si il n'y a pas d'erreur stocké dans le tableau d'erreur,on attribut les valeurs aux variables
         $clients->lastname = $lastname;
         $clients->firstname = $firstname;
         $clients->birthdate = $birthdate;
         $clients->phone = $phone;
         $clients->mail = $mail;
         $clients->id = $_GET['id'];
+//        roles initialisé à 2 ,correspond à un utilisateur client
         $clients->id_a7b98_roles = 2;
-
+//        lancement de la méthode verifiant si le mail est déja utilisé
         $checkIfMailExist = $clients->checkIfMailExist();
         if (intval($checkIfMailExist->existMail) === 1)
         {
@@ -115,6 +120,7 @@ if (isset($_POST['submit']))
         }
         elseif (intval($checkIfMailExist->existMail) === 0)
         {
+//            si il n'y a pas d'erreur on lance la méthode d'insertion des données
             if (!$clients->updateClientInformation())
             {
                 $success = false;
@@ -133,6 +139,7 @@ if (isset($_POST['submit']))
 
         if ($clients->updateClientInformation())
         {
+//            on attribut les nouvelles valeurs aux variables
             $clients->lastname = $lastname;
             $clients->firstname = $firstname;
             $clients->birthdate = $birthdate;

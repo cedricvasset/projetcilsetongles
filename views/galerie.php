@@ -1,8 +1,7 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 ?>
-
 <ul id="gallery">
     <li>
         <a href="#pic-1">
@@ -139,7 +138,7 @@ include('../header.php');
             <a href="#close" class="close" title="Close">&times;</a>
         </div>
     </li>
-     <li>
+    <li>
         <a href="#pic-10">           
             <img class="galeryImg img-fluid" src="../assets/img/imgGalerie/ongle10(14x10).jpg"  />
             <span><b>Preview</b></span>
@@ -214,7 +213,7 @@ include('../header.php');
             <a href="#close" class="close" title="Close">&times;</a>
         </div>
     </li>
-      <li>
+    <li>
         <a href="#pic-15">           
             <img class="galeryImg img-fluid" src="../assets/img/imgGalerie/ongle15.jpg"  />
             <span><b>Preview</b></span>
@@ -229,7 +228,7 @@ include('../header.php');
             <a href="#close" class="close" title="Close">&times;</a>
         </div>
     </li>
-     <li>
+    <li>
         <a href="#pic-16">           
             <img class="galeryImg img-fluid" src="../assets/img/imgGalerie/ongle16.jpg"  />
             <span><b>Preview</b></span>
@@ -245,7 +244,6 @@ include('../header.php');
         </div>
     </li>
 </ul>
-
-<?php include('../footer.php'); ?>
+<?php include '../footer.php'; ?>
 
 

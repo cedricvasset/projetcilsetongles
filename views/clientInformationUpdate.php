@@ -1,9 +1,8 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 include '../models/clientUser.php';
 include '../controllers/clientInformationUpdateCtrl.php';
-
 ?>
 <h3>Modifier mes informations</h3>
 <div class="updateForm">
@@ -13,8 +12,7 @@ include '../controllers/clientInformationUpdateCtrl.php';
                 <div class="row col-lg-12 justify-content-center">
                     <div class="col-lg-4">
                         <label class="col-form-label" for="inputDefault">NOM:</label>
-                        <!--                            pour que le texte saisi reste en memoire donne à la value le contenu du $_POST['lastname'] -->
-                        <input type="text" class="form-control" placeholder="Nom" id="lastname" name="lastname" value="<?= $_SESSION['lastname'] ?>">
+                        <input type="text" class="form-control" placeholder="Nom" id="lastname" name="lastname" value="<?= $_SESSION['lastname'] //pour que le texte saisi reste en memoire donne à la value le contenu du $_SESSION['lastname']      ?>">
                         <p><?= (empty($formError['lastname'])) ? '' : $formError['lastname'] ?></p>
                     </div>
                     <div class="col-lg-4">
@@ -66,4 +64,4 @@ include '../controllers/clientInformationUpdateCtrl.php';
         </div>
     </form>
 </div>
-<?php include('../footer.php'); ?>
+<?php include '../footer.php'; ?>

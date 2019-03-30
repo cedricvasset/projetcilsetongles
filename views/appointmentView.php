@@ -1,15 +1,12 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 include '../models/clientUser.php';
 include '../models/appointment.php';
 include '../models/prestation.php';
 include '../controllers/appointmentViewCtrl.php';
-
 ?>
-
-<?php
-
+<?php //si il existe une session, si la variable success est true on affiche la card avec l'affichage des variables de session
 if (isset($_SESSION['isConnect']))
 { if ($success == true){ ?>
 <div class="card text-white bg-warning mb-3" style="max-width: 20rem;">
@@ -21,7 +18,7 @@ if (isset($_SESSION['isConnect']))
     <p class="card-text">Votre rendez-vous est en attente de Validation</p>
   </div>
 </div>
-<?php } else{
+<?php } else{ //sinon on affiche le formulaire
     ?>
     <form action="appointmentView.php" method="POST">
         <div id="siteRegistration" class="form-group">
@@ -51,8 +48,7 @@ if (isset($_SESSION['isConnect']))
                         <option>15:00</option>
                         <option>17:00</option>
                     </select>
-                </div>
-               
+                </div> 
             </div>
             <button type="submit" name="submit" class="btnValid btn-primary btn-lg justify-content-center">VALIDER CETTE DEMANDE DE RENDEZ-VOUS</button> 
         </div>
@@ -62,11 +58,9 @@ if (isset($_SESSION['isConnect']))
 }
 else
 {
-    ?>
+   //si il n'y a pas de session ouverte, on affiche:?>
     <div id="appointmentRegistrationLink" class="form-group">
         <p>Pour prendre rendez-vous, vous devez préalablement être <a href="/views/newRegistration.php">inscrit</a> et <a href="/views/alreadyRegister.php">identifié</a> sur le site</p>
     </div>
 <?php } ?>
-
-
-<?php include('../footer.php'); ?>
+<?php include '../footer.php'; ?>

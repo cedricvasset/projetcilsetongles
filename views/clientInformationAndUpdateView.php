@@ -1,10 +1,10 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 include '../models/clientUser.php';
 include '../models/appointment.php';
 include '../controllers/clientAndInformationUpdateViewCtrl.php';
-include('administratorNavbar.php');
+include 'administratorNavbar.php';
 ?>
 <div class="card text-white bg-info mb-3 informationReturn" >
     <div class="card-header informationReturn"><?= $clients->lastname ?> <?= $clients->firstname ?></div>
@@ -14,6 +14,7 @@ include('administratorNavbar.php');
         <p class="card-text">Téléphone : <?= $clients->phone ?></p>
         <p class="card-text">Email : <?= $clients->mail ?></p>
         <?php
+        //affichage de la liste des rendez-vous grace à une boucle
         foreach ($clientListAppointment as $list)
         {
 //                création d'une ternaire (ternaire imbriquée) permettant de modifier la classe en fonction du status du rendez-vous.permet de modifier la couleur et le texte à l'affichage
@@ -22,14 +23,15 @@ include('administratorNavbar.php');
                 <div class="card-header"><?= $list->id_a7b98_statusAppointments == 3 ? 'En attente de validation' : ($list->id_a7b98_statusAppointments == 1 ? 'rendez-vous validé' : 'non validé'); ?></div>
                 <div class="card-body">
                     <h4 class="card-title"><?= $list->date ?></h4>
+                    <p><?= $list->prestation ?></p>
                 </div>
             </div>
-        <?php } ?>
+<?php } // passage de donné en paramettre d'url ?>
         <a class="btn btn-success" href="disconnectSession.php?action=disconnect">Créer un rendez-vous</a>
         <a class="btn btn-primary" href="clientInformationUpdateByAdmin.php?id=<?= $clients->id ?>"> Modifier les Informations</a>
         <a class="btn btn-danger" href="eraseUserByAdmin.php?id=<?= $clients->id ?>">SUPPRIMER CE COMPTE</a>
     </div>
 </div>
 <?php
-include('../footer.php');
+include '../footer.php';
 ?>

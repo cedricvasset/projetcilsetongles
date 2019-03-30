@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 ?>
 <div class="row justify-content-center">
     <div class="col-lg-4  fb-post" data-href="https://www.facebook.com/yuki.bm.7/posts/2151047094962609" data-width="200" data-show-text="true"><blockquote cite="https://www.facebook.com/yuki.bm.7/posts/2151047094962609" class="fb-xfbml-parse-ignore"><p>Séverine est très accueillante . Rien à redire sur son travail j en suis à chaque fois super contente .. Et son nouveau salon est très sympa</p>Publiée par <a href="#" role="button">Alex Bm</a> sur&nbsp;<a href="https://www.facebook.com/yuki.bm.7/posts/2151047094962609">Vendredi 18 janvier 2019</a></blockquote></div>
@@ -13,6 +13,5 @@ include('../header.php');
     <div class="fb-post" data-href="https://www.facebook.com/marie.tirot/posts/1949888158372834:0" data-width="300" data-show-text="true"><blockquote cite="https://www.facebook.com/marie.tirot/posts/1949888158372834:0" class="fb-xfbml-parse-ignore"><p>Très contente du résultat ! C’est une personne minutieuse et passionnée , je la recommande. Merci pour votre accueil !</p>Publiée par <a href="#" role="button">Marie Tirot</a> sur&nbsp;<a href="https://www.facebook.com/marie.tirot/posts/1949888158372834:0">Lundi 18 décembre 2017</a></blockquote></div>
     <div class="fb-post" data-href="https://www.facebook.com/elodie.nochez.1/posts/306440486834696" data-width="300" data-show-text="true"><blockquote cite="https://www.facebook.com/elodie.nochez.1/posts/306440486834696" class="fb-xfbml-parse-ignore"><p>Très bon travail et un accueil chaleureux...
                 Ravie...</p>Publiée par <a href="#" role="button">Elodie Nochez</a> sur&nbsp;<a href="https://www.facebook.com/elodie.nochez.1/posts/306440486834696">Mercredi 3 octobre 2018</a></blockquote></div>
-
 </div>  
-<?php include('../footer.php'); ?>
+<?php include '../footer.php'; ?>

@@ -1,8 +1,10 @@
 <?php
+
 $clientUser = new users(); //$clientUser devient une instance de l objet
 $regexText = '/^[a-zéèàêâùïüëA-Z- \']+$/';
 $regexDate = '/^([0-9]{4})-([0-9]{2})-([0-9]{2})$/';
 $regexPhone = ' /^0[1-9]([-. ]?[0-9]{2}){4}$/';
+//initialisation d'un tableau formError
 $formError = array();
 $success = false;
 //si il existe un POST du bouton submit
@@ -60,6 +62,7 @@ if (isset($_POST['submit']))
     }
     if (!empty($_POST['mail']))
     {
+//        filter_var et filter_validate_mail permet de ne pas utiliser de regex et de vérifier la conformité du champs avec une fonction php (plus rapide)
         if (filter_var($_POST['mail'], FILTER_VALIDATE_EMAIL))
         {
             $mail = htmlspecialchars($_POST['mail']);
@@ -101,7 +104,9 @@ if (isset($_POST['submit']))
         if ($_POST['confirmPassword'] != $password)
         {
             $formError['confirmPassword'] = 'les mots de passes ne correspondent pas';
-        }else{
+        }
+        else
+        {
             $confirmPassword = $_POST['confirmPassword'];
         }
     }
@@ -109,23 +114,27 @@ if (isset($_POST['submit']))
     {
         $formError['confirmPassword'] = 'Veuillez confirmer votre mot de passe';
     }
-    if(!empty($_POST['cguCheck']))
+    if (!empty($_POST['cguCheck']))
     {
-        if($_POST['cguCheck']) {
-        $cguCheck = $_POST['cguCheck'];
-        
+        if ($_POST['cguCheck'])
+        {
+            $cguCheck = $_POST['cguCheck'];
         }
-    }else{
-    $formError['cguCheck'] = 'vous devez accepter les Conditions Générales de Vente et d\'Utilisation pour vous inscrire';
+    }
+    else
+    {
+        $formError['cguCheck'] = 'vous devez accepter les Conditions Générales de Vente et d\'Utilisation pour vous inscrire';
     }
     if (count($formError) == 0)
     {
+//        si il n'y a pas d'erreur dans le tableau ,on attribut les valeurs aux variables
         $clientUser->lastname = $lastname;
         $clientUser->firstname = $firstname;
         $clientUser->birthdate = $birthdate;
         $clientUser->phone = $phone;
         $clientUser->mail = $mail;
         $clientUser->cgu = $cguCheck;
+//        cryptage du password avant insertion en base de données
         $clientUser->password = password_hash($password, PASSWORD_BCRYPT);
 //        le role est attribué à la valeur 2 par défaut(utilisateur simple)
         $clientUser->id_a7b98_roles = 2;
@@ -139,16 +148,16 @@ if (isset($_POST['submit']))
         }
         elseif (intval($checkIfMailExist->existMail) === 0)
         {
+//            sinon on lance la méthode
             if (!$clientUser->createUser())
             {
                 $success = false;
                 $formError['existMail'] = 'Une erreur s\'est produite';
-              
             }
             else
             {
 //                attribution des valeurs aux variables de session
-                 $success = true;
+                $success = true;
                 $_SESSION['id'] = $clientUser->id;
                 $_SESSION['firstname'] = $clientUser->firstname;
                 $_SESSION['lastname'] = $clientUser->lastname;
@@ -164,9 +173,8 @@ if (isset($_POST['submit']))
         }
         else
         {
-             $success = false;
+            $success = false;
             $formError['existMail'] = 'Merci de contacter le service technique!';
-           
         }
     }
 }

@@ -1,26 +1,36 @@
 <?php
 session_start();
-include('../header.php');
+include '../header.php';
 include '../models/clientUser.php';
 include '../models/appointment.php';
 include '../models/prestation.php';
 include '../controllers/suggestAppointmentByAdminCtrl.php';
-include('administratorNavbar.php');
+include 'administratorNavbar.php';
 ?>
-<form action="suggestAppointmentByAdmin.php?id=<?= $appointment->id_a7b98_users ?>" method="POST">
+<?php
+if ($success)
+{
+    ?>
+    <p>votre proposition a été envoyée au client</p>
+    <?php
+}
+else
+{
+    ?>
+    <form action="suggestAppointmentByAdmin.php?id=<?= $appointment->id_a7b98_users ?>" method="POST">
         <div id="siteRegistration" class="form-group">
             <div class="row appointmentForm">
-                    <div class="col-lg-5 form-group">
-                        <label for="exampleSelect1">CHOISISSEZ VOTRE PRESTATION : </label>
-                        <select name="prestation" class="backgroundSelect form-control" id="exampleSelect1">
-                            <?php
-                            foreach ($prestationList as $list)
-                            {
-                                ?>
+                <div class="col-lg-5 form-group">
+                    <label for="exampleSelect1">CHOISISSEZ VOTRE PRESTATION : </label>
+                    <select name="prestation" class="backgroundSelect form-control" id="exampleSelect1">
+                        <?php
+                        foreach ($prestationList as $list)
+                        { //boucle qui affiche la liste des prestations dans le menu déroulant
+                            ?>
                             <option value="<?= $list->id ?>"><?= $list->prestation ?> </option>
-                            <?php } ?>
-                        </select>
-                    </div>
+                        <?php } ?>
+                    </select>
+                </div>
                 <div class="col-lg-3">
                     <label class="col-form-label" for="inputDefault">DATE SOUHAITEE : </label>
                     <input min="<?= date('Y-m-d') ?>" type="date" class="backgroundSelect form-control"  id="appointmentDate" name="appointmentDate" value="<?= (isset($appointmentDate)) ? $_POST['appointmentDate'] : '' ?>">
@@ -37,11 +47,11 @@ include('administratorNavbar.php');
                         <option>17:00</option>
                     </select>
                 </div>
-               
             </div>
             <button type="submit" name="submit" class="btnValid btn-primary btn-lg justify-content-center">VALIDER CETTE DEMANDE DE RENDEZ-VOUS</button> 
         </div>
     </form>
+<?php } ?>
 <?php
-include('../footer.php');
+include '../footer.php';
 ?>

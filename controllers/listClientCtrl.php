@@ -8,6 +8,7 @@ if (isset($_POST['searchAjax']))
     $_POST['searchAjax'] = htmlspecialchars($_POST['searchAjax']); //pour sécuriser le formulaire contre les failles html
     $clients->inputValue = $_POST['searchAjax'];
     $searchClientLastname = $clients->searchClientInfo();
+//    on récupère les données récupéré par l'ajax dans un fichier json
     echo json_encode($searchClientLastname);
 }
 else{
@@ -32,15 +33,6 @@ else{
 //    offset permet de savoir a quel moment on reprend à la ligne
     $offset = ($page - 1) * $limit;
     $getListByLimit = $clients->getListByLimit($limit, $offset);
-
-//dans $clientUsers on va chercher la méthode
-    if (isset($_GET['searchSubmit']))
-    {
-        $_GET['word'] = htmlspecialchars($_GET['word']); //pour sécuriser le formulaire contre les failles html
-        $word = $_GET['word'];
-        $clients->inputValue = $_GET['word'];
-        $searchClientInfo = $clients->searchClientInfo();
-    }
     $clientsList = $clients->getClientList();
 }
 $clients = new users;

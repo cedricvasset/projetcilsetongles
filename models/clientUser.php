@@ -20,7 +20,7 @@ class users extends dataBase {
 
     /**
      * cette méthode sert a insérer les données dans la table a7b98_users
-     * @return 
+     * @return boleen
      */
     public function createUser()
     {
@@ -57,7 +57,7 @@ class users extends dataBase {
 
     /**
      * cette méthode permet de recuperer les données de la table en fonction du mail(identifiant)
-     * @return 
+     * @return boleen
      */
     public function userConnection()
     {
@@ -88,7 +88,7 @@ class users extends dataBase {
 
     /**
      * permet de modifier les informations client dans la base de données
-     * @return update
+     * @return boleen
      */
     public function updateClientInformation()
     {
@@ -106,7 +106,7 @@ class users extends dataBase {
 
     /**
      * permet de modifier le mot de passe dans la base de donnée en fonction de l'id
-     * @return update
+     * @return boleen
      */
     public function updateClientPassword()
     {
@@ -119,7 +119,7 @@ class users extends dataBase {
 
     /**
      * permet d'effacer toutes les données d'un client
-     * @return delete
+     * @return boleen
      */
     public function eraseClientData()
     {
@@ -187,7 +187,7 @@ class users extends dataBase {
      * permet de récupérer les infos clients en utilisant une limite et un offset pour la pagination 
      * @param type $limit
      * @param type $offset
-     * @return type
+     * @return type array
      */
     public function getListByLimit($limit, $offset)
     {

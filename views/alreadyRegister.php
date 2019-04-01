@@ -13,10 +13,10 @@ if (isset($_SESSION['isConnect']))
     <div class="card text-white bg-info mb-3 informationReturn" >
         <div class="card-header informationReturn"><?= $_SESSION['lastname'] ?> <?= $_SESSION['firstname'] ?></div>
         <div class="card-body informationReturn">
-            <h4 class="card-title">Informations</h4>
-            <p class="card-text">Date de naissance : <?= $_SESSION['birthdate'] ?></p>
-            <p class="card-text">Téléphone : <?= $_SESSION['phone'] ?></p>
-            <p class="card-text">Email : <?= $_SESSION['mail'] ?></p>
+            <h4 class="card-title">INFORMATIONS</h4>
+            <p class="card-text">DATE DE NAISSANCE : <?= $_SESSION['birthdate'] ?></p>
+            <p class="card-text">TELEPHONE : <?= $_SESSION['phone'] ?></p>
+            <p class="card-text">EMAIL : <?= $_SESSION['mail'] ?></p>
             <p class="card-text">MES RENDEZ-VOUS :</p>
             <div class="row">
                 <?php
@@ -54,13 +54,16 @@ else
     //si il n'y a pas de session ouverte alors on affiche le formulaire d'identification 
     ?>
     <form action="alreadyRegister.php" method="POST">
+        <div class="title">
+            <p>Veuillez vous identifier</p>
+        </div>
         <div id="siteIdentity" class="row col-lg-12 justify-content-center">
             <div class="col-lg-5">
-                <label for="userName">identifiant :</label>
+                <label for="userName">IDENTIFIANT :</label>
                 <input class="form-control" type="mail" id="userName" name="userName" placeholder="Email de contact" value="<?= (!empty($mail)) ? $_POST['userName'] : '' ?>">
             </div>  
             <div class="col-lg-5">
-                <label for="password">mot de passe :</label>
+                <label for="password">MOT DE PASSE :</label>
                 <input class="form-control" type="password" id="password" name="password" placeholder="Mot de passe" value="<?= (!empty($password)) ? $_POST['password'] : '' ?>">
             </div>
             <div class="col-5 align-self-center justify-content-center">

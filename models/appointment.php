@@ -15,7 +15,7 @@ class appointment extends dataBase {
 
     /**
      * méthode permettant d'insérer en base de données un nouveau rendez-vous
-     * @return insert
+     * @return boleen
      */
     public function inputRequestAppointment()
     {
@@ -87,7 +87,7 @@ class appointment extends dataBase {
 
     /**
      * permet de changer le status d'un rendez-vous en le passant à 1 en fonction de l'id du rdv
-     * @return update
+     * @return boleen
      */
     public function appointmentValidateByAdmin()
     {
@@ -99,7 +99,7 @@ class appointment extends dataBase {
 
     /**
      * supprime le rdv correspondant à l'id
-     * @return delete
+     * @return boleen
      */
     public function eraseAppointmentByAdmin()
     {
@@ -112,7 +112,7 @@ class appointment extends dataBase {
 
     /**
      * modifi le satu du rdv à 2 en fonction de l'id rdv
-     * @return update
+     * @return boleen
      */
     public function changeStatusAppointmentByAdmin()
     {
@@ -125,7 +125,7 @@ class appointment extends dataBase {
 
     /**
      * modifi la date du rdv en fonction de l id rdv
-     * @return update
+     * @return boleen
      */
     public function updateAppointmentDAte()
     {

@@ -21,6 +21,12 @@ h2{
     font-family: 'Parisienne', cursive; 
     color:white;
 }
+.newAppointment p, .returnInfo p, .title p{
+    text-align: center;
+    font-family: 'Parisienne', cursive; 
+    color:white;
+    font-size:300%;
+}
 h3{
     text-align: center;
     color:white;

@@ -11,7 +11,9 @@ include 'administratorNavbar.php';
 if ($success)
 {
     ?>
-    <p>votre proposition a été envoyée au client</p>
+    <div class="returnInfo">
+        <p>votre proposition a été envoyée au client</p>
+    </div>
     <?php
 }
 else

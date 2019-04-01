@@ -6,7 +6,9 @@ include '../models/appointment.php';
 include '../controllers/newAppointmentViewCtrl.php';
 include 'administratorNavbar.php';
 ?>
-<p>mes rendez-vous à valider :</p>
+<div class="newAppointment">
+    <p>mes rendez-vous à valider :</p>
+</div>
 <div class="row">
     <?php
     foreach ($needValidateAppointments as $list)

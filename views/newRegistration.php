@@ -29,8 +29,8 @@ else
                 <div class="row col-lg-12 justify-content-center">
                     <div class="col-lg-4">
                         <label class="col-form-label" for="inputDefault">NOM:</label>
-                        <input type="text" class="form-control" placeholder="Nom" id="lastname" name="lastname" value="<?= (isset($lastname)) ? $_POST['lastname'] : '' ?>">
-                        <p><?= (empty($formError['lastname'])) ? '' : $formError['lastname'] ?></p>
+                        <input type="text" class="form-control" placeholder="Nom" id="lastname" name="lastname" value="<?= (isset($lastname)) ? $_POST['lastname'] : '' //sauvegarde les valeurs du post ?>">
+                        <p><?= (empty($formError['lastname'])) ? '' : $formError['lastname'] //affichage des messages d'erreur ?></p>
                     </div>
                     <div class="col-lg-4">
                         <label class="col-form-label" for="inputDefault">PRENOM:</label>

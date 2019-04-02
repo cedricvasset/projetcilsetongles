@@ -7,6 +7,7 @@ if (isset($_POST['searchAjax']))
     $clients = new users();
     $_POST['searchAjax'] = htmlspecialchars($_POST['searchAjax']); //pour sécuriser le formulaire contre les failles html
     $clients->inputValue = $_POST['searchAjax'];
+    // on lance la méthode
     $searchClientLastname = $clients->searchClientInfo();
 //    on récupère les données récupéré par l'ajax dans un fichier json
     echo json_encode($searchClientLastname);

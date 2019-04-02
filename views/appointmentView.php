@@ -38,6 +38,7 @@ if (isset($_SESSION['isConnect']))
                     <label class="col-form-label" for="inputDefault">DATE SOUHAITEE : </label>
                     <input min="<?= date('Y-m-d') ?>" type="date" class="backgroundSelect form-control"  id="appointmentDate" name="appointmentDate" value="<?= (isset($appointmentDate)) ? $_POST['appointmentDate'] : '' ?>">
                     <p><?= (empty($formError['takenAppointments'])) ? '' : $formError['takenAppointments'] ?></p>
+                    <p><?= (empty($formError['appointmentDate'])) ? '' : $formError['appointmentDate'] ?></p>
                 </div>
                 <div class="col-lg-3">
                     <label class="col-form-label" for="exampleSelect1">HORAIRE SOUHAITEE :</label>

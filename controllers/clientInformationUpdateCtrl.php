@@ -8,6 +8,7 @@ $regexPhone = ' /^0[1-9]([-. ]?[0-9]{2}){4}$/';
 //initialisation d'un tableau d'erreur
 $formError = array();
 $success = false;
+$passwordsuccess = false;
 //si on valide le formulaire
 if (isset($_POST['submit']))
 {
@@ -129,6 +130,7 @@ if (isset($_POST['submit']))
         }
         if ($clientUser->updateClientInformation())
         {
+            $success = true;
 //            on attribut les valeurs aux variables de session
             $userConnection = $clientUser->userConnection();
             $_SESSION['id'] = $clientUser->id;
@@ -173,6 +175,7 @@ if (isset($_POST['submitPassword']))
         $clientUser->id = $_SESSION['id'];
 //        on lance la méthode
         $updateClientPassword = $clientUser->updateClientPassword();
+        $passwordsuccess = true;
     }
 }
 ?>

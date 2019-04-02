@@ -42,18 +42,18 @@ include'administratorNavbar.php';
 </div>
 <div class="row col-lg-12 paginationCursor">
     <ul class="pagination pagination-lg">
-        <!--si je suis sur la page 1 je rajoute une class disabled-->
         <li class="page-item <?= $page == 1 ? 'enabled' : '' ?>">
             <a class="page-link" href="clientListView.php?page=<?= $page - 1 ?>">&laquo;</a>
         </li>
         <?php
+//        si $page est inferieur ou = au nbr de page necessaire pour affiche 8 pers($limit)/page alors on incrémente
         for ($page = 1; $page <= $nbrPage; $page++)
         {
             ?>
             <li class="page-item">
                 <a class="page-link" href="clientListView.php?page=<?= $page ?>"><?= $page ?></a>
             </li>
-        <?php } ?>
+        <?php } // si $page = au nombre de page ?>
         <li class="page-item <?= $page == $nbrPage ? 'enabled' : '' ?>">
             <a class="page-link" href="clientListView.php?page=<?= $page + 1 ?>">&raquo;</a>
         </li>

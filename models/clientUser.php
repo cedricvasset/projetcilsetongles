@@ -149,7 +149,7 @@ class users extends dataBase {
     }
 
     /**
-     * récupere les infos client en verifiant les lettres de lastname
+     * récupere les infos client en fonction de la lettre saisie
      * @return array
      */
     public function searchClientInfo()

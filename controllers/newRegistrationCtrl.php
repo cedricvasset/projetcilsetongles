@@ -127,7 +127,7 @@ if (isset($_POST['submit']))
     }
     if (count($formError) == 0)
     {
-//        si il n'y a pas d'erreur dans le tableau ,on attribut les valeurs aux variables
+//        si il n'y a pas d'erreur dans le tableau ,on attribut les valeurs des posts aux objets
         $clientUser->lastname = $lastname;
         $clientUser->firstname = $firstname;
         $clientUser->birthdate = $birthdate;

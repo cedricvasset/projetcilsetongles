@@ -1,8 +1,10 @@
 <?php
 
-$prestation = new prestation();
+$prestation = new prestation();//on crée des instances des objets
 $appointment = new appointment();
 $message = '';
+//on récupère les objets grace à la méthode pour l'affichage dans le select.comme cela 
+// si on ajoute de nouvelles prestations elles s'ajouteront automatiquement aux autres
 $prestationList = $prestation->getPrestationList();
 $formError = array();
 $success = false;

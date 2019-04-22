@@ -7,7 +7,7 @@ include '../controllers/alreadyRegisterCtrl.php';
 ?>
 <?php
 //on verifi si une session est ouverte, dans ce cas on affiche la card.
-if (isset($_SESSION['isConnect']))
+if (isset($_SESSION['isConnect']) && ($_SESSION['id_a7b98_roles'] !=3))
 {
     ?>
     <div class="card text-white bg-info mb-3 informationReturn" >

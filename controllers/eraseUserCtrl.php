@@ -33,8 +33,9 @@ if (isset($_POST['submitEraseUser']))
     {
 //        si le tableau d'erreur contient 0 ligne
         $clientUser->id = $_SESSION['id'];
+        $clientUser->id_a7b98_roles = 3;
 //        on lance la méthode de supression des données clients le delete cascade mis en place dans la base de données permet de supprimer les rdv en meme temps
-        $eraseClientData = $clientUser->eraseClientData();
+        $eraseClientData = $clientUser->updateClientRole();
         header('location: ../views/disconnectSession.php?action=disconnect');
         exit;
     }

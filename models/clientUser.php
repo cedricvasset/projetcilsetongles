@@ -12,7 +12,7 @@ class users extends dataBase {
     public $password = '';
     public $cgu = 1;
     public $age = 0;
-
+   
     public function __construct()
     {
         parent::__construct();
@@ -227,7 +227,18 @@ class users extends dataBase {
         $this->password = $result->password;
         return true;
     }
-
+ /**
+     * permet de modifier le role du user
+     * @return boleen
+     */
+    public function updateClientRole()
+    {
+        $query = 'UPDATE `a7b98_users` SET `id_a7b98_roles`= :id_a7b98_roles WHERE `id`= :id';
+        $stmt = $this->db->prepare($query); //on prépare la requète
+        $stmt->bindValue(':id_a7b98_roles', $this->id_a7b98_roles, PDO::PARAM_INT);
+        $stmt->bindValue(':id', $this->id, PDO::PARAM_INT);
+        return $stmt->execute(); //exécution de la requète   
+    }
     /**
      * deconnection de la base de données
      */

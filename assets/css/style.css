@@ -2,6 +2,7 @@ body{
     font-family: 'Oxygen', sans-serif;
     background-color: #734a61;
     color:white;
+    cursor: url('Aero_arrow.cur'), auto;
 }
 h1{
     font-family: 'Parisienne', cursive;
@@ -47,6 +48,7 @@ ul{
     background-color: #543647;    
 }
 .nav-link{
+    cursor: url('Aero_link.cur'), pointer;
     font-family: 'Noticia Text', serif;
     font-size: 120%;
     text-align: center;
@@ -126,7 +128,7 @@ ul{
 
 .carousel{
     -webkit-filter: grayscale(1);
-    cursor: pointer;
+    cursor: url('Aero_link.cur'), pointer;
     transition: all .5s ease;
 }
 .carousel:hover{
@@ -500,4 +502,16 @@ ul{
     margin-left:auto;
     margin-right:auto; 
     font-weight: bold;
+}
+img{
+    cursor: url('Aero_link.cur'), pointer;
+}
+a{
+    cursor: url('Aero_link.cur'), pointer;
+}
+.btn:not(:disabled):not(.disabled){
+    cursor: url('Aero_link.cur'), pointer;
+}
+button:not(:disabled), [type="button"]:not(:disabled), [type="reset"]:not(:disabled), [type="submit"]:not(:disabled){
+     cursor: url('Aero_link.cur'), pointer;
 }

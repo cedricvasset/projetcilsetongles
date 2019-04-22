@@ -111,7 +111,7 @@ class appointment extends dataBase {
     }
 
     /**
-     * modifi le satu du rdv à 2 en fonction de l'id rdv
+     * modifi le satut du rdv à 2 en fonction de l'id rdv
      * @return boleen
      */
     public function changeStatusAppointmentByAdmin()
